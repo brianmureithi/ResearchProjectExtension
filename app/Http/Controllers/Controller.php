@@ -14,4 +14,16 @@ class Controller extends BaseController
         return view('front-end.pages.Home');
     }
    
+    public function aboutus(){
+        return view('front-end.pages.AboutUs');
+    }
+    public function contact(){
+        return view('front-end.pages.ContactUs');
+    }
+    public function signin(){
+        return view('front-end.pages.SignIn');
+    }
+    public function register(){
+        return view('front-end.pages.Register');
+    }
 }
