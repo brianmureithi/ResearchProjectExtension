@@ -23,3 +23,8 @@ Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->n
 
 
 
+/* Admin routes */
+Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
+
+
+
