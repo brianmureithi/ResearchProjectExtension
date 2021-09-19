@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="" >
+                        <a href="{{route('view-courses')}}" >
                             <span>View Courses</span>
                         </a>
                     </li>

@@ -28,6 +28,9 @@ Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])
 Route::get('/add_courses', [App\Http\Controllers\CourseController::class, 'addcourse'])->name('add-courses');
 Route::post('/add_courses', [App\Http\Controllers\CourseController::class, 'addcoursesave'])->name('add-courses-save');
 Route::post('/add_video', [App\Http\Controllers\CourseController::class, 'addvideo'])->name('add-video');
+Route::get('/view-all-courses', [App\Http\Controllers\CourseController::class, 'viewcourses'])->name('view-courses');
+Route::get('/view-course/{id}', [App\Http\Controllers\CourseController::class, 'viewcourse'])->name('view-course');
+Route::delete('/delete-course/{id}', [App\Http\Controllers\CourseController::class, 'deletecourse'])->name('destroy-course');
 
 
 

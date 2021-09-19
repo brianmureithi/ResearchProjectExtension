@@ -110,6 +110,26 @@ class CourseController extends Controller
 
       }  
       }
+
+      public function viewcourses(){
+        $showCourses = Course::all();
+        return view('back-end.pages.ViewAllCourses', compact('showCourses'));
+      }
+      public function viewcourse(){
+       
+        return view('back-end.pages.ViewCourse', );
+      }
+      public function deletecourse(Request $request, $id){
+        $findCourse = Course::find($id);
+        $findCourse->delete();
+        $findVideo= Video::where('course_id',$id);
+        $findVideo->delete();
+       
+        return back()->with('success','Course Deleted successfuly');
+        
+      }
+
+      
     
 }
 
