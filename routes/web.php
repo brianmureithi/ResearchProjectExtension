@@ -25,6 +25,8 @@ Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->n
 
 /* Admin routes */
 Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('dashboard');
+Route::get('/add_courses', [App\Http\Controllers\CourseController::class, 'addcourse'])->name('add-courses');
+Route::post('/add_courses', [App\Http\Controllers\CourseController::class, 'addcoursesave'])->name('add-courses-save');
 
 
 

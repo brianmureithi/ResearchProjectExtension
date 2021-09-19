@@ -49,7 +49,7 @@
                 <ul class="ml-menu">
                     
                     <li>
-                        <a href="" >
+                        <a href="{{ route('add-courses') }}" >
                             <span>Add Course</span>
                         </a>
                     </li>
