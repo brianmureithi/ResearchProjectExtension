@@ -39,6 +39,7 @@
             </div>
             <div class="body">
                 <form action="{{ route('add-courses-save') }}"  method="post" enctype="multipart/form-data">
+                    @csrf
                     <label for="email_address">Name</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -61,7 +62,7 @@
 
                     
                     <br>
-                    <button type="button" class="btn btn-primary m-t-7 waves-effect">Add Course</button>
+                    <button type="submit" class="btn btn-primary m-t-7 waves-effect">Add Course</button>
                 </form>
             </div>
         </div>
@@ -72,6 +73,28 @@
  <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
+
+
+           {{--  @if($errors->any())
+            <div class="alert alert-danger">
+                <p><strong>Opps Something went wrong</strong></p>
+                <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+                @endif --}}
+             {{-- Alert messages --}}
+       @if ($message = Session::get('success-video'))
+          <div class="alert alert-success">
+                      <p>{{ $message }}</p>
+          </div>
+          @elseif($message = Session::get('fail-video'))
+              <div class="alert alert-danger">
+                  <p>{{ $message }}</p>
+      </div>
+                  
+          
+          @endif  
             <div class="header">
                 <h2>
                  Enter Course Videos
@@ -90,16 +113,21 @@
                 </ul> --}}
             </div>
             <div class="body">
-                <form action=""  method="post" enctype="multipart/form-data">
-
+                <form action="{{route('add-video')}}"  method="post" enctype="multipart/form-data">
+@csrf
                     <div class="col-md-12">
                         <p>
                             <b>Course</b>
                         </p>
                         <select  name="course_id" class="form-control show-tick">
-                            <option>Mustard</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
+                           
+                            @forelse($showCourses as $showcourse)
+                            <option value="{{$showcourse->id}}">{{$showcourse->id}}. {{$showcourse->name}}</option>
+                            @empty
+                            <div class="alert alert-warning">
+                                No Courses Present
+                            </div> 
+                            @endforelse
                         </select>
 
                     </div>
@@ -120,7 +148,7 @@
                                    
                                 </div>
                                 <div class="fallback">
-                                    <input name="name" type="file" multiple />
+                                    <input name="video" type="file" multiple />
                                 </div>
                             
                         </div>
@@ -131,7 +159,7 @@
 
                     
                     <br>
-                    <button type="button" class="btn btn-primary m-t-7 waves-effect">Add Video</button>
+                    <button type="submit" class="btn btn-primary m-t-7 waves-effect">Add Video</button>
                 </form>
             </div>
         </div>
