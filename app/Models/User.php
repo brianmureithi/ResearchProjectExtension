@@ -10,7 +10,7 @@ class User extends Model
     use HasFactory;
     protected $fillable = [
         "name",
-        'name',
+        
         'email',
         'phone',
         'country',

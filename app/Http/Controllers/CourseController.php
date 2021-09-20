@@ -26,11 +26,26 @@ class CourseController extends Controller
             'name'=>'required',
             'amount'=>'required',
             'description'=>'required',
+            'image'=>'required',
         ]);
-        Course::create($request->all());
+        
+    
+        $image =$request->image;
+        $filename=time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('storage/img/courseImages',$filename);
+        Course::create([
+          'name'=>$request->name,
+          'description'=>$request->description,
+          'amount'=>$request->amount,
+          'image'=>$filename,
+         
+         
+          
+      ]);
+      /*   Course::create($request->all());
         // $obj= new Subcategory();
         // $obj->name= $request->name;
-        // $obj->category_id= $request->category_id;
+        // $obj->category_id= $request->category_id; */
       
 
         return back()->with('success','Course added successfully, proceed to add videos');
@@ -61,44 +76,7 @@ class CourseController extends Controller
 
           $data->save();
          
-     /*   /  if($request->hasfile('video')){ 
-
-            $file =$request->file('video');
-            $course_id=$request->input('course_id');
-            foreach($file as $file){
-            $filename = $file->getClientOriginalName();
-            $path = public_path().'/img/videos/';
-            return $file->move($path, $filename);
-
-            Video::create([
-              'video'=>$video_name,
-             
-              'course_id'=>$course_id,
-              
-          ]);
-        }
-
-        }
- */
-        /*   if($request->hasfile('video')){
-              $videos=$request->file('video');
-             
-
-
-              foreach($videos as $video){
-                  $video_name=$video->getClientOriginalName();
-                  $path=$video->storeAs('videos/',$video_name,'public');
-            
-                  $course_id=$request->input('course_id');
-                 
-                  Video::create([
-                      'video'=>$video_name,
-                     
-                      'course_id'=>$course_id,
-                      
-                  ]);
-              }
-          } */
+     
         
 
         
@@ -127,6 +105,13 @@ class CourseController extends Controller
        
         return back()->with('success','Course Deleted successfuly');
         
+      }
+
+      public function payment(){
+        return view('front-end.pages.Payment');
+      }
+      public function subscribe(){
+
       }
 
       

@@ -12,7 +12,8 @@ class Course extends Model
     protected $fillable = [
         "name",
         "description",
-        "amount"
+        "amount",
+        "image"
     ];
     public function payment(){
         return $this->hasMany(payments::class, 'course_id','id');

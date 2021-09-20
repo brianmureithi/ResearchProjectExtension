@@ -6,12 +6,15 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\Course;
 
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        return view('front-end.pages.Home');
+        $showCourses = Course::with('videos')->get();
+        return view('front-end.pages.Home', compact('showCourses'));
+
     }
    
     public function aboutus(){

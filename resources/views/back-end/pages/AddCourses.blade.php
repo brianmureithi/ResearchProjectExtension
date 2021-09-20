@@ -7,6 +7,14 @@
   <!-- Vertical Layout -->
   <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        @if($errors->any())
+    <div class="alert alert-danger">
+        <p><strong>Opps Something went wrong</strong></p>
+        <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+        @endif
           {{-- Alert messages --}}
           @if ($message = Session::get('success'))
           <div class="alert alert-success">
@@ -58,7 +66,31 @@
                             <input type="text" id="amount" name="amount" class="form-control" placeholder="Enter the cost of the course. If free enter zero(0)">
                         </div>
                     </div>
-                   
+                   <!-- File Upload | Drag & Drop OR With Click & Choose -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                                      
+                        </div>
+                        <div class="body">
+                           
+                                <div class="dz-message">
+                                    <div class="drag-icon-cph">
+                                        <i class="material-icons">touch_app</i>
+                                    </div>
+                                    <h4>Drop files here or click to upload.</h4>
+                                   <small>Image depicting the course</small>
+                                </div>
+                                <div class="fallback">
+                                    <input name="image" type="file" multiple />
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
 
                     
                     <br>

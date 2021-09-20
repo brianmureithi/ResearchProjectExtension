@@ -20,6 +20,9 @@ Route::get('/contact-us', [App\Http\Controllers\Controller::class, 'contact'])->
 Route::get('/sign-in', [App\Http\Controllers\Controller::class, 'signin'])->name('sign-in');
 Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
 
+Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
+Route::get('/my-courses', [App\Http\Controllers\CourseController::class, 'subscribe'])->name('my-courses');
+
 
 
 
@@ -31,6 +34,7 @@ Route::post('/add_video', [App\Http\Controllers\CourseController::class, 'addvid
 Route::get('/view-all-courses', [App\Http\Controllers\CourseController::class, 'viewcourses'])->name('view-courses');
 Route::get('/view-course/{id}', [App\Http\Controllers\CourseController::class, 'viewcourse'])->name('view-course');
 Route::delete('/delete-course/{id}', [App\Http\Controllers\CourseController::class, 'deletecourse'])->name('destroy-course');
+
 
 
 

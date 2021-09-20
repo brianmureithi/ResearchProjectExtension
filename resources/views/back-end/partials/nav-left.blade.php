@@ -101,7 +101,12 @@
             </li>
 
          
-
+            <li>
+                <a href="">
+                    <i class="material-icons">payment</i>
+                    <span>Payments</span>
+                </a>
+            </li>
           
           
 
@@ -131,6 +136,7 @@
                     <span>Subscribers</span>
                 </a>
             </li>
+             
             <li>
                 <a href="" >
                     <i class="material-icons">settings_power</i>
