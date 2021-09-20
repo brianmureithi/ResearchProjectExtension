@@ -14,7 +14,7 @@
           <li><a class="active" href="{{ route('frontend.index') }}">Home</a></li>
           <li><a href="{{ route('about') }}">About</a></li>
           <li><a href="{{ route('courses') }}">Courses</a></li>
-          <li><a href="#">Payment</a></li>
+          <li><a href="{{ route('payment') }}">Payment</a></li>
           <li><a href="#">My courses</a></li>
           <li><a href="{{ route('contact') }}">Contact us</a></li>
 
