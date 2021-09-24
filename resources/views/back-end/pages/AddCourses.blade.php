@@ -7,26 +7,25 @@
   <!-- Vertical Layout -->
   <div class="row clearfix">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        @if($errors->any())
+      {{--   @if($errors->any())
     <div class="alert alert-danger">
         <p><strong>Opps Something went wrong</strong></p>
         <ul>
         @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
         @endforeach
-        @endif
+        @endif --}}
           {{-- Alert messages --}}
-          @if ($message = Session::get('success'))
+     @if ($message = Session::get('success'))
           <div class="alert alert-success">
                       <p>{{ $message }}</p>
           </div>
-          @elseif($message = Session::get('fail'))
+     @elseif($message = Session::get('fail'))
               <div class="alert alert-danger">
                   <p>{{ $message }}</p>
-      </div>
-                  
-          
-          @endif 
+            </div>              
+      @endif 
+
         <div class="card">
             <div class="header">
                 <h2>
@@ -46,7 +45,7 @@
                 </ul> --}}
             </div>
             <div class="body">
-                <form action="{{ route('add-courses-save') }}"  method="post" enctype="multipart/form-data">
+                <form action="{{ route('add-courses-save') }}"  method="post" enctype="multipart/form-data" autocomplete="off">
                     @csrf
                     <label for="email_address">Name</label>
                     <div class="form-group">

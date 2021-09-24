@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Course;
+use App\Models\User;
 
 class Controller extends BaseController
 {
@@ -26,7 +29,64 @@ class Controller extends BaseController
     public function signin(){
         return view('front-end.pages.SignIn');
     }
-    public function register(){
+    /* public function register(){
         return view('front-end.pages.Register');
-    }
+    } */
+
+
+              public function save(Request $request){
+                        $request->validate([
+                            'name'=>'required',
+                            'email'=>'required|email|unique:users',
+                            'password'=>'required|min:5|max:12',
+                            'country'=>'required'                        
+                ]);
+                        $user= new User;
+                        $user->name = $request->name;
+                        $user->email = $request->email;
+                        $user->country = $request->country;
+                        $user->phone = $request->phone;
+                        if($request->password != $request->confirm){
+                            return back()->with('fail','Ensure both password fields are same');
+                        }
+                        $user->password = Hash::make($request->password);
+
+                $save= $user->save();
+
+                if($save){
+                    return back()->with('success','New user registered successfully');
+                }else{
+                    return back()->with('fail','Something went wrong, try again');
+                }
+                    }
+
+                    public function check(Request $request){
+                        $request->validate([
+                            'email'=> 'required|email',
+                            'password'=> 'required|min:5|max:12',
+                        ]);
+                
+                        $userInfo= User::where('email', '=', $request->email )->first();
+                        {
+                        if($userInfo){
+                            if(Hash::check($request->password, $userInfo->password)){
+                                $request->session()->put('LoggedUser', $userInfo->id,$userInfo->name );
+                                return redirect('');
+                            }else{
+                               return back()->with('fail','wrong email or password') ;
+                            }
+                        }   
+                        else{
+                            return back()->with('fail','Email not recognized, try signing up');
+                        }
+                    
+                    }
+                            }
+
+                            /* function logout(){
+                                if(session()->has('LoggedUser')){
+                                    session()->pull('LoggedUser');
+                                    return redirect('/');
+                                } 
+                            }*/
 }

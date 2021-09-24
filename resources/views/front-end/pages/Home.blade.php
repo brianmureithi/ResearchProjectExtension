@@ -41,7 +41,7 @@
               <h3><a href="course-details.html">{{ $Course->name }}</a></h3>
               <p>{{ $Course->description }}</p>
               @if($Course->amount > 0)
-              <a href="{{ route('payment') }}" class="get-started-btn">Pay</a>
+              <a href="{{ route('payment'), $Course->id }}" class="get-started-btn">Pay</a>
               @else
               <a href="{{ route('my-courses') }}" class="get-started-btn">Subscribe</a>
               @endif

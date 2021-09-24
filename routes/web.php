@@ -12,16 +12,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::group(['middleware'=>['AuthCheck']], function(){
+    Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
+});
+Auth::routes();
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('frontend.index');
 Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index'])->name('courses');
 Route::get('/about', [App\Http\Controllers\Controller::class, 'aboutus'])->name('about');
 Route::get('/contact-us', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
 Route::get('/sign-in', [App\Http\Controllers\Controller::class, 'signin'])->name('sign-in');
-Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
-
+Route::post('/sign-in', [App\Http\Controllers\Controller::class, 'check'])->name('log-in-check');
+/* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
+Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name('register-save'); */
 Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
 Route::get('/my-courses', [App\Http\Controllers\CourseController::class, 'subscribe'])->name('my-courses');
+Route::get('/logout', [App\Http\Controllers\Controller::class, 'logout'])->name('logout');
 
 
 
@@ -38,3 +43,7 @@ Route::delete('/delete-course/{id}', [App\Http\Controllers\CourseController::cla
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

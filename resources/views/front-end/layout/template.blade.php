@@ -8,7 +8,7 @@
   <title>Research Production extension</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Favicons -->
   <link href="{{ asset('assets/front-end/img/logo.jpg')}}" rel="icon">
   <link href="{{ asset('assets/front-end/img/logo.jpg')}}" rel="apple-touch-icon">
@@ -28,7 +28,8 @@
   <link href="{{ asset('assets/front-end/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/front-end/css/style.css')}}" rel="stylesheet">
 
@@ -42,7 +43,7 @@
 
 <body>
 
-
+  <div id="app">
   <section>
     {{-- Navigation Bars --}}
     @include('front-end.partials.navigation');
@@ -53,7 +54,7 @@
     @include('front-end.partials.footer');
   
 </section>
-
+</div>
 <script src="{{ asset('assets/front-end/vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/front-end/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('assets/front-end/vendor/php-email-form/validate.js')}}"></script>

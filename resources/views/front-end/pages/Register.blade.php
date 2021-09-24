@@ -13,15 +13,35 @@
 	               		<hr />
 	               	</div>
 	            </div> 
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </div>
+                    @endif
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                </div>
+           @elseif($message = Session::get('fail'))
+                    <div class="alert alert-danger">
+                        <p>{{ $message }}</p>
+                  </div>              
+            @endif 
 				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="#">
-						
+                 
+					<form class="form-horizontal" action="{{ route('register-save') }}"  method="post" enctype="multipart/form-data">
+						@csrf
+                      
 						<div class="form-group">
 							<label for="name" class="cols-sm-2 control-label">Your Name</label>
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your full Name"/>
+									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your full Name" required/>
 								</div>
 							</div>
 						</div>
@@ -31,7 +51,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" required/>
 								</div>
 							</div>
 						</div>
@@ -41,7 +61,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone number (mpesa no.)"/>
+									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone number (mpesa no.)" required/>
 								</div>
 							</div>
 						</div>
@@ -50,7 +70,7 @@
 							<div class="cols-sm-10">
                                 <div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-globe fa" aria-hidden="true"></i></span>
-                        <select class="form-control" id="country" name="country">
+                        <select class="form-control" id="country" name="country" required>
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
                             <option value="Algeria">Algeria</option>
@@ -306,7 +326,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+									<input type="password" class="form-control" name="password" id="password" minlength="6" placeholder="Enter your Password" required/>
 								</div>
 							</div>
 						</div>
@@ -316,8 +336,9 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
+									<input type="password" class="form-control" name="confirm" id="confirm" minlength="6" placeholder="Confirm your Password" required/>
+                                    <span class="text-danger"> @error('password'){{ $message }} @enderror</span>
+                                </div>
 							</div>
 						</div>
 

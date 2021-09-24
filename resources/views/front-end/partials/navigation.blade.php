@@ -14,13 +14,17 @@
           <li><a class="active" href="{{ route('frontend.index') }}">Home</a></li>
           <li><a href="{{ route('about') }}">About</a></li>
           <li><a href="{{ route('courses') }}">Courses</a></li>
-          <li><a href="{{ route('payment') }}">Payment</a></li>
+         
           <li><a href="#">My courses</a></li>
           <li><a href="{{ route('contact') }}">Contact us</a></li>
-
-          <li class="dropdown"><a href="{{ route('sign-in') }}"><span>Sign in</span> <i class="bi bi-chevron-down"></i></a>
+          @guest
+          @if (Route::has('login'))
+          <li class="dropdown"><a href="{{ route('login') }}"><span>{{ __('Login') }}</span> <i class="bi bi-chevron-down"></i></a>
+           @endif
             <ul>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              @if (Route::has('register'))
+              <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
+              @endif
               {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -33,10 +37,21 @@
               <li><a href="#">Drop Down 2</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
-            </ul>
+         
           </li>
           <li><a href="contact.html">Contact</a></li> --}}
         </ul>
+        
+          <li><a href="#"> {{-- {{ Auth::user()->name }} --}}</a></li>
+          <li><a href="{{ route('logout') }}"  onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+{{ __('Logout') }}</a></li>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+  @csrf
+</form>
+        </ul>
+        @endguest
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
