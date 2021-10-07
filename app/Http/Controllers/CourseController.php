@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Video;
+use App\Models\subscribed_courses;
 
 
 class CourseController extends Controller
@@ -113,8 +114,33 @@ class CourseController extends Controller
       public function subscribe(){
 
       }
-
       
+      public function subscribeFree(Request $request, $id){
+       
+      
+          
+              subscribed_courses::create([
+                'course_id'=>$id,               
+                'user_id'=>auth()->user()->id,
+             
+            ]);
     
-}
+    return redirect()->route('my-courses')
+    ->with('success-free','Course subscribed successfully'); 
+            
+          
+        
+       
+        }
+
+        public function subscribedCourses(){
+       
+        $subcribedcourses = subscribed_courses::where('user_id', '=',auth()->user()->id)->with('course','course.videos')->get();
+ 
+        return view('front-end.pages.SubscribedCourses',compact('subcribedcourses'));
+      }
+
+    }    
+    
+
 

@@ -16,7 +16,14 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
         $showCourses = Course::with('videos')->get();
+        
         return view('front-end.pages.Home', compact('showCourses'));
+
+    }
+    public function courses(){
+        $showCourses = Course::with('videos')->get();
+
+        return view('front-end.pages.Courses', compact('showCourses'));
 
     }
    

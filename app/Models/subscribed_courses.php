@@ -13,4 +13,10 @@ class subscribed_courses extends Model
         "user_id",
      
     ];
+
+    public function course(){
+      
+        return  $this->belongsTo(Course::class);
+
+}
 }

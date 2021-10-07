@@ -33,7 +33,7 @@
             @endif 
 				<div class="main-login main-center">
                  
-					<form class="form-horizontal" action="{{ route('register-save') }}"  method="post" enctype="multipart/form-data">
+					<form class="form-horizontal"   method="post" enctype="multipart/form-data">
 						@csrf
                       
 						<div class="form-group">

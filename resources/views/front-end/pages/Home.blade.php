@@ -43,16 +43,30 @@
               @if($Course->amount > 0)
               <a href="{{ route('payment'), $Course->id }}" class="get-started-btn">Pay</a>
               @else
-              <a href="{{ route('my-courses') }}" class="get-started-btn">Subscribe</a>
+             {{--  <a href="{{ route('subscribe-free',$Course->id) }}" class="get-started-btn">Subscribe</a> --}}
+            
+             <a href="#"  onclick="   document.getElementById('subscribe-course-{{$Course->id}}').submit()" class="get-started-btn" 
+             style="background:#fea103">Subscribe</a>
+             
+            
               @endif
-              <a href="courses.html" class="get-started-btn learn-more-btn"style="background:#1aa3e8 !important;">View Demo</a>
+
+              
+              <a href="#" data-toggle="modal" data-target="#view-demo-{{$Course->id}}"  class="get-started-btn learn-more-btn"style="background:#1aa3e8 !important;">View Demo</a>
+              <form action="{{ route('subscribe-free',$Course->id) }}" method="post" id="subscribe-course-{{$Course->id}}">
+                @csrf
+            
+            </form>
             </div>
           </div>
         </div>
+       
+        @include('front-end.pages.ViewDemo') 
         @empty
         <div> <span class="alert alert-success">No Courses available</span>
                               
         </div>
+       
         @endforelse
 
        {{--  @forelse($showCourses as $Course)
@@ -92,6 +106,7 @@
       </div>
 
     </div>
+    
   </section><!-- End Popular Courses Section -->
 
 

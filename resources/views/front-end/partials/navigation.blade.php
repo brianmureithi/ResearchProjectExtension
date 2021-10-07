@@ -15,7 +15,7 @@
           <li><a href="{{ route('about') }}">About</a></li>
           <li><a href="{{ route('courses') }}">Courses</a></li>
          
-          <li><a href="#">My courses</a></li>
+          <li><a href="{{ route('my-courses') }}">My courses</a></li>
           <li><a href="{{ route('contact') }}">Contact us</a></li>
           @guest
           @if (Route::has('login'))
@@ -25,6 +25,30 @@
               @if (Route::has('register'))
               <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>
               @endif
+              @else
+             
+            <li>
+              <a class="" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+                  </li>
+
+                  <li class="">
+                    <a id="" class="" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" style="color:#5fcf80" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+    
+                  {{--   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        
+                    </div> --}}
+                </li>
+            
+         
               {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
@@ -42,15 +66,8 @@
           <li><a href="contact.html">Contact</a></li> --}}
         </ul>
         
-          <li><a href="#"> {{-- {{ Auth::user()->name }} --}}</a></li>
-          <li><a href="{{ route('logout') }}"  onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-{{ __('Logout') }}</a></li>
-
-<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-  @csrf
-</form>
-        </ul>
+        
+      
         @endguest
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
