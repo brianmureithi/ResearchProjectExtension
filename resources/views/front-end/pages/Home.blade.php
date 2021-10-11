@@ -6,7 +6,7 @@
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Start learning<br>Today</h1>
       <h2>We have an assortment of courses that will help you grow</h2>
-      <a href="courses.html" class="btn-get-started">Get Started</a>
+      <a href="{{ route('courses') }}" class="btn-get-started">Get Started</a>
     </div>
   </section><!-- End Hero -->
 
@@ -32,13 +32,13 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4>{{ $Course->name }}</h4>
                 @if($Course->amount == 0)
-                <p class="price">Free</p>
+                <p class="price" style="">Free</p>
                 @else
                 <p class="price">kes {{ $Course->amount }}</p>
                 @endif
               </div>
 
-              <h3><a href="course-details.html">{{ $Course->name }}</a></h3>
+              <h3><a href="#">{{ $Course->name }}</a></h3>
               <p>{{ $Course->description }}</p>
               @if($Course->amount > 0)
               <a href="{{ route('payment'), $Course->id }}" class="get-started-btn">Pay</a>

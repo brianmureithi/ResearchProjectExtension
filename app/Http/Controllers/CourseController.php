@@ -140,6 +140,13 @@ class CourseController extends Controller
         return view('front-end.pages.SubscribedCourses',compact('subcribedcourses'));
       }
 
+
+      public function coursecontent(Request $request, $id){
+      
+        $coursecontent=Course::where('id', '=', $id)->with('videos')->get();
+
+        return view('front-end.pages.CourseContent', compact('coursecontent'));
+      }
     }    
     
 

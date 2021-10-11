@@ -50,7 +50,7 @@
         <p>{{ $coursesubscribed->course->description }}</p>
         
               
-        <a href="#" class="get-started-btn learn-more-btn" style="background:#1aa3e8 !important;">Course Content</a>
+        <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn" style="background:#1aa3e8 !important;">Course Content</a>
         
       </div>
     </div>
@@ -67,8 +67,9 @@
 No course subscribed at the moment
 
 </div>
-
-<a href="{{ route('courses') }}" class="get-started-btn">Go to courses</a>
+<div class="col-lg-6 col-md-4 col-sm-6">
+ <a href="{{ route('courses') }}" class="get-started-btn">Go to courses</a>
+</div>
 
 
 @endforelse
