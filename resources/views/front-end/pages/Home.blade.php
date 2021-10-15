@@ -51,9 +51,12 @@
             
               @endif
 
-              
-              <a href="#" data-toggle="modal" data-target="#view-demo-{{$Course->id}}"  class="get-started-btn learn-more-btn"style="background:#1aa3e8 !important;">View Demo</a>
-              <form action="{{ route('subscribe-free',$Course->id) }}" method="post" id="subscribe-course-{{$Course->id}}">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+                Launch demo modal
+              </button>
+              @include('front-end.pages.ViewDemo') 
+              {{-- <a href="#" data-toggle="modal" data-target="#view-demo-{{$Course->id}}"  class="get-started-btn learn-more-btn"style="background:#1aa3e8 !important;">View Demo</a>
+               --}}<form action="{{ route('subscribe-free',$Course->id) }}" method="post" id="subscribe-course-{{$Course->id}}">
                 @csrf
             
             </form>
@@ -61,7 +64,7 @@
           </div>
         </div>
        
-        @include('front-end.pages.ViewDemo') 
+      
         @empty
         <div> <span class="alert alert-success">No Courses available</span>
                               

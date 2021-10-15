@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
     Route::get('/subscribed-courses',[App\Http\Controllers\CourseController::class, 'subscribedCourses'])->name('my-courses');
     Route::get('/course-content/{id}',[App\Http\Controllers\CourseController::class, 'coursecontent'])->name('view-course-content');
+    Route::post('/subscribe-free/{id}',[App\Http\Controllers\CourseController::class, 'subscribeFree'])->name('subscribe-free');
+
 
 
 });
@@ -32,8 +34,6 @@ Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name
 
 /* Route::get('/my-courses', [App\Http\Controllers\CourseController::class, 'subscribe'])->name('my-courses'); */
 /* Route::get('/logout', [App\Http\Controllers\Controller::class, 'logout'])->name('logout'); */
-Route::post('/subscribe-free/{id}',[App\Http\Controllers\CourseController::class, 'subscribeFree'])->name('subscribe-free');
-
 
 
 /* Admin routes */

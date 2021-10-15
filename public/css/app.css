@@ -5414,7 +5414,7 @@ a.close.disabled {
   transform: translate(0, -50px);
 }
 @media (prefers-reduced-motion: reduce) {
-  .modal.fade .modal-dialog {
+  .modal.fade .modal-diag {
     transition: none;
   }
 }

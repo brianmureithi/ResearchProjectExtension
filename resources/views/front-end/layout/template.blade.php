@@ -20,7 +20,10 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
- 
+   <!-- Template Main CSS File -->
+  
+  
+
   <link href="{{ asset('assets/front-end/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/aos/aos.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -28,20 +31,15 @@
   <link href="{{ asset('assets/front-end/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <link href="{{ asset('assets/front-end/css/app.css')}}" rel="stylesheet"> 
+  <link href="{{ asset('assets/front-end/css/style.css')}}" rel="stylesheet">
+
+
   
   <script src="{{ asset('js/app.js') }}" defer></script>
-  
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('assets/front-end/css/style.css')}}" rel="stylesheet">
-  <link href="{{ asset('assets/front-end/css/app.css') }}" rel="stylesheet">
-  
 
-  <!-- =======================================================
-  * Template Name: Mentor - v4.3.0
-  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  
 </head>
 
 <body>
@@ -68,10 +66,10 @@
 
 <!-- Template Main JS File -->
 
-<script src="{{ asset('assets/front-end/js/main.js')}}"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+  <script src="{{ asset('assets/front-end/js/main.js')}}"></script>
 
 </body>
 
