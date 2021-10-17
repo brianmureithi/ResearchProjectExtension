@@ -23,6 +23,9 @@
    <!-- Template Main CSS File -->
   
   
+<!-- Jquery Core Js -->
+ 
+<script src="{{ asset('js/app.js') }}" defer></script>
 
   <link href="{{ asset('assets/front-end/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/aos/aos.css')}}" rel="stylesheet">
@@ -34,10 +37,10 @@
 
   <link href="{{ asset('assets/front-end/css/app.css')}}" rel="stylesheet"> 
   <link href="{{ asset('assets/front-end/css/style.css')}}" rel="stylesheet">
+ 
 
 
-  
-  <script src="{{ asset('js/app.js') }}" defer></script>
+ 
 
   
 </head>
@@ -56,6 +59,7 @@
   
 </section>
 </div>
+<script src="{{asset('assets/front-end/js/jquery.min.js')}}"></script>
 <script src="{{ asset('assets/front-end/vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/front-end/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{ asset('assets/front-end/vendor/php-email-form/validate.js')}}"></script>

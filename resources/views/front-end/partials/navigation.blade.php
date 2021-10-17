@@ -5,7 +5,7 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="{{ route('frontend.index') }}" class="logo me-auto">
         <img src="{{ asset('storage/img/front-end/logo.jpg') }}" alt="" class="img-fluid">
-        <h5 class="logo me-auto"><a href="{{ route('frontend.index') }}">Research Production, extension</a></h5>
+        <h5 class="logo me-auto"><a href="{{ route('frontend.index') }}">Research, Production, & extension</a></h5>
       </a>
   
 

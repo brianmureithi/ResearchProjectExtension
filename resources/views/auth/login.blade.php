@@ -50,7 +50,7 @@
                                     align-items:center;
                                     justify-content:center;
                         ">
-        <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
                         </div>
         @if (Route::has('password.request'))
         <a class="btn btn-link" id="forgot_pswd" href="{{ route('password.request') }}">
@@ -60,7 +60,7 @@
     {{-- <a href="#" id="forgot_pswd">Forgot password?</a> --}}
         <hr>
         <!-- <p>Don't have an account!</p>  -->
-        <button class="btn btn-primary btn-block" onclick="window.location='{{ route('register') }}'" type="button" id="btn-signup"><i  class="fa fa-user-plus" aria-hidden="true"></i> Sign up New Account</button>
+        <button class="btn btn-dark btn-block" onclick="window.location='{{ route('register') }}'" type="button" id="btn-signup"><i  class="fa fa-user-plus" aria-hidden="true"></i> Register a New Account</button>
         </form>
     </div>
 {{-- <div class="container" style="margin-top:100px;margin-bottom:70px;">
