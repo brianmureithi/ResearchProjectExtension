@@ -29,6 +29,8 @@ Route::get('/about', [App\Http\Controllers\Controller::class, 'aboutus'])->name(
 Route::get('/contact-us', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
 Route::get('/sign-in', [App\Http\Controllers\Controller::class, 'signin'])->name('sign-in');
 Route::post('/sign-in', [App\Http\Controllers\Controller::class, 'check'])->name('log-in-check');
+Route::get('/blog-details', [App\Http\Controllers\Controller::class, 'blogDetails'])->name('blog-details');
+Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name('register-save'); */
 

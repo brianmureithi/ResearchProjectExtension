@@ -1480,28 +1480,39 @@ section {
   background: #fff;
   padding: 6px 10px;
   position: relative;
-  border-radius: 50px;
+  border-radius: 15px;
   text-align: left;
   border: 1px solid #e0e5e2;
 }
 
 #footer .footer-newsletter form input[type="email"] {
-  border: 0;
-  padding: 4px 8px;
-  width: calc(100% - 100px);
+margin-bottom: 10px;
+margin-left:5px;
+margin-right:5px;
+  padding: 2px 3px;
+  width:90%;
+ 
+}
+#footer .footer-newsletter form input[type="category"] {
+margin:2px 3px 2px 2px;
+  padding: 2px 8px;
+  padding: 2px 3px;
+  width:90%;
+}
+#footer .footer-newsletter form label{
+  
 }
 
 #footer .footer-newsletter form input[type="submit"] {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  border: 0;
+  position: relative;
+  margin-top: 10px;
   background: none;
   font-size: 16px;
   padding: 0 20px 2px 20px;
   background: #5fcf80;
   color: #fff;
+  height: 50px;
+  border:none;
   transition: 0.3s;
   border-radius: 50px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
@@ -1509,6 +1520,7 @@ section {
 
 #footer .footer-newsletter form input[type="submit"]:hover {
   background: #3ac162;
+  padding: 10px;
 }
 
 #footer .credits {

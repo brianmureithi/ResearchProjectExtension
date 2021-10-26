@@ -2,6 +2,15 @@
 
 @section('content')
 <!-- ======= Hero Section ======= -->
+@if ($message = Session::get('success-newsletter'))
+<div class="alert alert-success">
+            <p>{{ $message }}</p>
+</div>
+@elseif($message = Session::get('fail-newsletter'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+  </div>              
+@endif 
 <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Start learning<br>Today</h1>

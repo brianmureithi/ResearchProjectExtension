@@ -24,7 +24,7 @@
             <div class="address">
               <i class="bi bi-geo-alt"></i>
               <h4>Location:</h4>
-              <p>Jomo Kenyatta university</p>
+              <p>P.O. Box 62,000 – 00200 NAIROBI, KENYA</p>
             </div>
 
             <div class="email">
@@ -36,7 +36,7 @@
             <div class="phone">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>067-5870117</p>
+              <p>+254-067-52711</p>
             </div>
 
           </div>

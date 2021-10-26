@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Newslettersubscribe;
 
 class Controller extends BaseController
 {
@@ -96,4 +97,31 @@ class Controller extends BaseController
                                     return redirect('/');
                                 } 
                             }*/
+
+
+            public function blogDetails(){
+                return view('front-end.pages.BlogDetails');
+            }
+            public function newslettersubscribe(Request $request){
+                try{
+                    $request->validate
+                    ([
+                        'email'=>'required|email|unique:newslettersubscribes',           
+                        'category'=>'required',
+                      
+                    ]);
+                 /*    $prodoverview=ProductOverview::where('product_id', '=', $request->product_id)->first(); */
+                 Newslettersubscribe::create($request->all());
+                    
+            
+          
+            return back()->with('success-newsletter','Thankyou for subscribing, we shall be in touch');
+                    
+                }
+                catch(\Exception $e){
+                    return back()
+                    ->with('fail-newsletter','Sorry an error occured, try subscribing again');
+                } 
+            }
+
 }

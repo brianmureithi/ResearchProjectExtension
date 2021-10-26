@@ -42,8 +42,12 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             <p>Subscribe to receive latest content from R.P.E</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form action="{{ route('newsletter-visitor') }}" method="post">
+              @csrf
+              <div style="align-text:left;"> <label for="email">Email:</label><input id="email" type="email" placeholder="Enter email" class="form-control" name="email"></div>
+             <div> <label for="category">Category:</label><input id="category" placeholder="Enter category"type="category" class="form-control" name="category"></div>
+              
+              <input type="submit" value="Subscribe">
             </form>
           </div>
 
