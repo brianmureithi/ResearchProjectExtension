@@ -35,7 +35,7 @@
   <link href="{{ asset('assets/front-end/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/front-end/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
-  {{-- <link href="{{ asset('assets/front-end/css/app.css')}}" rel="stylesheet">  --}}
+ <link href="{{ asset('assets/front-end/css/app.css')}}" rel="stylesheet">  
   <link href="{{ asset('assets/front-end/css/style.css')}}" rel="stylesheet">
  
 
@@ -62,7 +62,7 @@
 {{-- <script src="{{asset('assets/front-end/js/jquery.min.js')}}"></script> --}}
 <script src="{{ asset('assets/front-end/vendor/aos/aos.js') }}"></script>
 <script src="{{ asset('assets/front-end/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('assets/front-end/vendor/php-email-form/validate.js')}}"></script>
+{{-- <script src="{{ asset('assets/front-end/vendor/php-email-form/validate.js')}}"></script> --}}
 <script src="{{ asset('assets/front-end/vendor/purecounter/purecounter.js')}}"></script>
 <script src="{{ asset('assets/front-end/vendor/swiper/swiper-bundle.min.js')}}"></script>
 {{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}

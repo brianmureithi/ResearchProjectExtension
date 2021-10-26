@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Video;
 use App\Models\subscribed_courses;
+use App\Models\Newslettersubscribe;
 
 
 class CourseController extends Controller
@@ -147,6 +148,23 @@ class CourseController extends Controller
 
         return view('front-end.pages.CourseContent', compact('coursecontent'));
       }
+      public function newsletterbackend(Request $request){
+      
+        $newslettersubscribers=Newslettersubscribe::all();
+
+        return view('back-end.pages.Newsletersub', compact('newslettersubscribers'));
+      }
+      public function subscriberdelete($id){
+      
+        $findsubscriber = Newslettersubscribe::where('id',$id);
+        $findsubscriber->delete();
+        return back()->with('success','Subscriber deleted successfuly');
+
+
+       
+      }
+      
+
     }    
     
 

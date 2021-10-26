@@ -5,10 +5,10 @@
     <div class="container-fluid">
         <div class="block-header">
 
-
+        </div>
+    </div>
         </section>
-    </div>
-    </div>
+   
 
 
             @endsection

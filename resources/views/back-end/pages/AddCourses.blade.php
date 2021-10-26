@@ -197,10 +197,10 @@
     </div>
 </div>
 <!-- #END# Vertical Layout -->
-
+</div>
+</div>
         </section>
-    </div>
-    </div>
+   
 
 
             @endsection

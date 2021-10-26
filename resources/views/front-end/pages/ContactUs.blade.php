@@ -2,12 +2,22 @@
 
 @section('content')
 <!-- ======= Breadcrumbs ======= -->
+
 <div class="breadcrumbs" data-aos="fade-in">
     <div class="container">
       <h2>Contact Us</h2>
       <p></p>
     </div>
   </div><!-- End Breadcrumbs -->
+  @if ($message = Session::get('success'))
+<div class="alert alert-success">
+            <p>{{ $message }}</p>
+</div>
+@elseif($message = Session::get('fail'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+  </div>              
+@endif 
 
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="contact">
@@ -45,7 +55,8 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0">
 
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="{{ route('contact-form') }}" method="post" role="form" class="php-email-form">
+            @csrf
             <div class="row">
               <div class="col-md-6 form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -60,11 +71,11 @@
             <div class="form-group mt-3">
               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
-           {{--  <div class="my-3">
+  <div class="my-3">
               <div class="loading">Loading</div>
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div> --}}
+            </div> 
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
 

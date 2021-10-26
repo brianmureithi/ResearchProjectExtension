@@ -47,12 +47,13 @@
                                         <td>{{$course->amount}}</td>
                                         <td>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <button type="button" onclick="window.location='{{route('view-course',$course->id)}}'" class="btn btn-success btn-block waves-effect" data-toggle="tooltip" data-placement="top" title="View Course">View</button>
+                                            
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                                 <button type="button" onclick="  confirm('Are you sure you want to delete ({{$course->name }}) completely?') ? document.getElementById('delete-course-{{$course->id}}').submit() : ''  "class="btn btn-danger btn-block waves-effect" data-toggle="tooltip" data-placement="top" title="Delete ">Delete</button>
                                             </div>
-                                            <button type="button" onclick="window.location='{{route('view-course',$course->id)}}'" class="btn btn-primary btn-block waves-effect" data-toggle="tooltip" data-placement="top" title="View Course">View</button>
-                                            
+                                           
                                             
                                            
                                             <form action="{{ route('destroy-course',$course->id) }}" method="post" id="delete-course-{{$course->id}}">
@@ -77,10 +78,10 @@
             </div>
             <!-- #END# Hover Rows -->
 
-
+        </div>
+    </div>
         </section>
-    </div>
-    </div>
+   
 
 
             @endsection

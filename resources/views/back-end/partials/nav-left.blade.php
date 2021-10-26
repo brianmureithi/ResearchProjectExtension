@@ -34,7 +34,7 @@
         <ul class="list">
             <li class="header">MAIN NAVIGATION</li>
             <li>
-                <a href="">
+                <a href="{{ route('dashboard') }}">
                     <i class="material-icons">home</i>
                     <span>Dashboard</span>
                 </a>
@@ -74,7 +74,7 @@
                    </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="" >
+                        <a href="{{ route('contacts-backend') }}" >
                             <span>View messages</span>               
                         </a>
                     </li>
@@ -131,14 +131,14 @@
             </li>
 
             <li>
-                <a href="">
+                <a href="{{ route('newsletter-backend') }}">
                     <i class="material-icons">group</i>
                     <span>Subscribers</span>
                 </a>
             </li>
              
             <li>
-                <a href="" >
+                <a href="{{ route('logout-route') }}" >
                     <i class="material-icons">settings_power</i>
                     <span>Logout</span>
                 </a>

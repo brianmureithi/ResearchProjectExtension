@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Course;
 use App\Models\User;
 use App\Models\Newslettersubscribe;
+use App\Models\Contact;
 
 class Controller extends BaseController
 {
@@ -123,5 +124,44 @@ class Controller extends BaseController
                     ->with('fail-newsletter','Sorry an error occured, try subscribing again');
                 } 
             }
+
+            public function contactus (Request $request){
+                $request->validate([
+                    'name'=>'required',
+                    'email'=>'required',
+                    'subject'=>'required',
+                    'message'=>'required',
+                  
+        ]);
+        $contact= new Contact;
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        
+$save= $contact->save();
+
+if($save){
+    return back()->with('success','Message sent successfully');
+}
+else{
+    return back()->with('fail','Something went wrong, try again');
+}
+
+            }
+
+            public function contactsbackend(){
+                $showMessages = Contact::all();
+                return view('back-end.pages.Messages', compact('showMessages'));
+            }
+
+            public function deletemessage($id){
+      
+                $findmessage = Contact::where('id',$id);
+                $findmessage->delete();
+                return back()->with('success','Message deleted successfuly');
+          
+               
+              }
 
 }
