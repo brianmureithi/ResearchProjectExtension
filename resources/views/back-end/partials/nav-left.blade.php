@@ -66,7 +66,7 @@
                     </li> --}}
                 </ul>
             </li>
-
+           
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">local_post_office</i>
@@ -99,17 +99,6 @@
                     </li>
                 </ul>
             </li>
-
-         
-            <li>
-                <a href="">
-                    <i class="material-icons">payment</i>
-                    <span>Payments</span>
-                </a>
-            </li>
-          
-          
-
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">info_outline</i>
@@ -130,6 +119,24 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="">
+                    <i class="material-icons">thumb_up</i>
+                    <span>Courses subscribed</span>
+                </a>
+            </li>
+
+         
+            <li>
+                <a href="">
+                    <i class="material-icons">payment</i>
+                    <span>Payments</span>
+                </a>
+            </li>
+          
+          
+
+          
             <li>
                 <a href="{{ route('newsletter-backend') }}">
                     <i class="material-icons">group</i>

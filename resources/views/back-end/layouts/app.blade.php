@@ -10,7 +10,7 @@
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Lonestar || Admin</title>
+    <title>Research Production Extension || Admin</title>
     <!-- Favicon-->
     <link rel="icon" href="{{asset('storage/img/favicon.ico')}} " type="image/x-icon">
 

@@ -95,9 +95,11 @@ class CourseController extends Controller
         $showCourses = Course::all();
         return view('back-end.pages.ViewAllCourses', compact('showCourses'));
       }
-      public function viewcourse(){
+      public function viewcourse($id){
+        $showcoursedetails = Course::where('id', '=',$id)->with('course.videos')->get();
        
-        return view('back-end.pages.ViewCourse', );
+        return view('back-end.pages.ViewCourse', compact('showcoursedetails'));
+
       }
       public function deletecourse(Request $request, $id){
         $findCourse = Course::find($id);
@@ -158,10 +160,7 @@ class CourseController extends Controller
       
         $findsubscriber = Newslettersubscribe::where('id',$id);
         $findsubscriber->delete();
-        return back()->with('success','Subscriber deleted successfuly');
-
-
-       
+        return back()->with('success','Subscriber deleted successfuly');     
       }
       
 

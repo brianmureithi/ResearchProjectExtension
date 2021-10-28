@@ -119,6 +119,44 @@
     </div>
     
   </section><!-- End Popular Courses Section -->
+  <div class="modal fade" id="admodal" role="dialog" tabindex="-1">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="carousel slide" data-ride="carousel" id="adCarousel">
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<h1>This is Slide 1</h1>
+								<h5>Same is shown of text, but you can use any html content imges, videos, etc inside this box</h5>
+							</div>
+							<div class="item">
+								<h1>This is Slide 2</h1>
+								<h5>You can choose to have carousal or just a single html content</h5>
+							</div>
+							<div class="item">
+								<h1>This is Slide 3</h1>
+								<h5>Carousal is a good way to show ads, to keep user engaged.</h5>
+							</div>
+							<div class="item">
+								<h1>This is Slide 4</h1>
+								<h5>Okay</h5>
+							</div>
+							<div class="item">
+								<h1>This is Slide 5</h1>
+								<h5>Enough, Done !</h5>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-danger" data-dismiss="modal" type="button">No, Close this popup now.</button><br class="visible-xs">
+					<br class="visible-xs">
+					<button class="btn btn-success" type="button">Yes, I would love to click on Ads.</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
 
 @endsection
