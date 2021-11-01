@@ -4,7 +4,9 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            showcoursedetails
+
+        </div>
+      
              <!-- display success message  -->
              @if(Session::get('success'))
              <div class="alert alert-success">
@@ -51,8 +53,8 @@
                    <h5>Description:</h5>  <p>{{ $showcourse->description }}</p>
                   
                       <a href="#" data-toggle="modal" data-target="#edit-course-{{$showcourse->id}}" class="btn bg-deep-orange btn-md p-5 mb-5">Edit course details</a>
-                      <a href="#" data-toggle="modal"  onclick="  confirm('Are you sure you want delete records for course {{$showProducts->name }}? This will delete the course permanently. Try editing instead') ? document.getElementById('delete-course-{{$showcourse->id}}').submit() : ''  "class="btn btn-danger btn-md p-5 ">Delete Course</a>
-                       <form action="{{route('delete-course-admin', $showcourse->id)}}" method="post" id="delete-course-{{$showcourse->id}}">
+                      <a href="#" data-toggle="modal"  onclick="  confirm('Are you sure you want delete records for course {{$showcourse->name }}? This will delete the course permanently. Try editing instead') ? document.getElementById('delete-course-{{$showcourse->id}}').submit() : ''  "class="btn btn-danger btn-md p-5 ">Delete Course</a>
+                       <form action="{{route('destroy-course', $showcourse->id)}}" method="post" id="delete-course-{{$showcourse->id}}">
                            @csrf
                            @method('DELETE')
                        </form>
@@ -66,12 +68,12 @@
                      
                      
                      
-                     <a href="#" data-toggle="modal" data-target="add-course-{{$showcourse->id}}" class="btn btn-success btn-md p-5 mb-5">Add Course details</a>
-                     <a href="#" data-toggle="modal"  onclick="  confirm('You are about to delete course {{$showcourse->name }} ?') ? document.getElementById('delete-course-{{$showcourse->id}}').submit() : ''  "class="btn btn-danger btn-md p-5 ">Delete course</a>
+                     <a href="#" data-toggle="modal" data-target="{{ route('add-courses') }}" class="btn btn-success btn-md p-5 mb-5">Add Course details</a>
+                     {{-- <a href="#" data-toggle="modal"  onclick="  confirm('You are about to delete course {{$showcourse->name }} ?') ? document.getElementById('delete-course-{{$showcourse->id}}').submit() : ''  "class="btn btn-danger btn-md p-5 ">Delete course</a>
                       <form action="/product-tech-specs-delete/{{ $showcourse->id }}" method="post" id="delete-product-tech-specs-{{$showProducts->id}}">
                           @csrf
                           @method('DELETE')
-                      </form>
+                      </form> --}}
 
                      
                   @endif
@@ -84,7 +86,7 @@
           
           
           <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="card"  style="!important">
+              <div class="card">
                   <div class="header bg-red">
                       <h2>
                          
@@ -105,25 +107,24 @@
                        
                             
                         
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
                             <a href="{{URL:: asset('/storage/img/product/'.$showcourse->image) }}" data-sub-html="Demo Description">
-                                <img class="img-responsive thumbnail" alt="product image" src="{{URL:: asset('/storage/img/product/'.$showcourse->image) }}">
-                            </a>
-                            
-                            
-
+                                <img class="img-responsive thumbnail" alt="product image" src="{{URL:: asset('/storage/img/courseImages/'.$showcourse->image) }}">
+                            </a>                  
                         </div>
+                        
                     
                     
-                    <a href="#" data-toggle="modal" data-target="#add-product-image" class="btn btn-success btn-sm p-5">Update Image</a>
+                    <a href="#" data-toggle="modal" data-target="#update-course-image" class="btn btn-success btn-sm p-5">Update Image</a>
                     {{-- <a href="{{route('delete-image',$showcourse->id)}}" class="btn btn-danger btn-sm">Delete</a> --}}
                     <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete image for course {{$showcourse->name  }} ?') ? document.getElementById('delete-course-image-{{$showcourse->id}}').submit() : ''  ">delete image</a>
-                    <form action="{{route('delete-image', $showcourse->id)}}" method="post" id="delete-course-image-{{$showcourse->id}}">
+                    <form action="{{route('destroy-image-route', $showcourse->id)}}" method="post" id="delete-course-image-{{$showcourse->id}}">
                         @csrf
                         @method('DELETE')
                     </form> --
                     @include('back-end.pages.UpdateImagePopup')
                       
+          </div>
           </div>
           </div>
           </div>
@@ -171,7 +172,7 @@
                           </div>
                       @endforeach
                       
-                      <a href="#" data-toggle="modal" data-target="#add-video" class="btn btn-success btn-sm p-5">Add video</a>
+                      <a href="#" data-toggle="modal" data-target="#add-video-{{ $showcourse->id }}" class="btn btn-success btn-sm p-5">Add video</a>
                       {{-- <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete images for {{$showProducts->name  }} ?') ? document.getElementById('delete-product-image-{{$showProducts->id}}').submit() : ''  ">delete images</a>
                       <form action="/product-image-delete/{{ $showProducts->id }}" method="post" id="delete-product-image-{{$showProducts->id}}">
                           @csrf
@@ -203,7 +204,6 @@
 
 
 
-        </div>
     </div>
    </section>
   @endsection

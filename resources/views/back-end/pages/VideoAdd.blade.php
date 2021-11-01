@@ -1,15 +1,15 @@
   
-  <div class="modal fade" id="update-course-image-{{$showcourse->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="add-video-{{ $showcourse->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Image: <strong class="text-success"></strong></h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Video: <strong class="text-success"></strong></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{ route('update-course-image',$showcourse->id) }}" enctype="multipart/form-data" autocomplete="off">
+            <form method="post" action="{{ route('add-video',$showcourse->id) }}" enctype="multipart/form-data" autocomplete="off">
                 @csrf
             
               <!-- File Upload | Drag & Drop OR With Click & Choose -->
@@ -18,7 +18,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                   Add image
+                   Add Video
                    
                 </h2>
                 <ul class="header-dropdown m-r--5">
@@ -41,7 +41,7 @@
                      
                     </div>
                     <div class="fallback">
-                        <input name="image[]" type="file" multiple />
+                        <input name="video[]" type="file" multiple />
                     </div>
                 </div>
             </div>

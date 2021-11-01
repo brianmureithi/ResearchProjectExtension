@@ -96,7 +96,7 @@ class CourseController extends Controller
         return view('back-end.pages.ViewAllCourses', compact('showCourses'));
       }
       public function viewcourse($id){
-        $showcoursedetails = Course::where('id', '=',$id)->with('course.videos')->get();
+        $showcoursedetails = Course::where('id', '=',$id)->with('videos')->get();
        
         return view('back-end.pages.ViewCourse', compact('showcoursedetails'));
 
@@ -110,6 +110,14 @@ class CourseController extends Controller
         return back()->with('success','Course Deleted successfuly');
         
       }
+      public function deleteimage(Request $request, $id){
+        $findCourse = Course::find($id);
+        $findCourse->delete();
+       
+       
+        return back()->with('success','Course Deleted successfuly');
+        
+      }
 
       public function payment(){
         return view('front-end.pages.Payment');
@@ -117,6 +125,24 @@ class CourseController extends Controller
       public function subscribe(){
 
       }
+
+     
+      public function  updatecourse(Request $request, $id){
+        $findCourse = Course::find($id);
+    
+        $findProductById->update( $request->except(['_token', '_method' ]) );
+        return back()->with('success','Course updated successfuly');
+    }
+      public function  updatecourseimage(Request $request, $id){
+      /*   $findCourse = Course::find($id); */
+    
+      $image =$request->image;
+      $filename=time().'.'.$image->getClientOriginalExtension();
+      $request->image->move('storage/img/courseImages',$filename);
+             Course::where('id', $id)->update(array('image' => $filename));
+       /*  $findProductById->update( $request->except(['_token', '_method' ]) ); */
+        return back()->with('success-image','Course image updated successfuly');
+    }
       
       public function subscribeFree(Request $request, $id){
        
@@ -162,6 +188,12 @@ class CourseController extends Controller
         $findsubscriber->delete();
         return back()->with('success','Subscriber deleted successfuly');     
       }
+      
+      public function addVideoAdmin(Request $request, $id){
+      
+       
+      }
+
       
 
     }    
