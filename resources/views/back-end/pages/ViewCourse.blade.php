@@ -27,7 +27,7 @@
              @foreach ($showcoursedetails as $showcourse)
                  
 
-             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+             <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
               <div class="card">
                   <div class="header bg-light-green">
                       <h2>
@@ -85,7 +85,7 @@
      
           
           
-          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12">
               <div class="card">
                   <div class="header bg-red">
                       <h2>
@@ -114,30 +114,27 @@
                         </div>
                         
                     
-                    
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <a href="#" data-toggle="modal" data-target="#update-course-image" class="btn btn-success btn-sm p-5">Update Image</a>
                     {{-- <a href="{{route('delete-image',$showcourse->id)}}" class="btn btn-danger btn-sm">Delete</a> --}}
                     <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete image for course {{$showcourse->name  }} ?') ? document.getElementById('delete-course-image-{{$showcourse->id}}').submit() : ''  ">delete image</a>
                     <form action="{{route('destroy-image-route', $showcourse->id)}}" method="post" id="delete-course-image-{{$showcourse->id}}">
                         @csrf
                         @method('DELETE')
-                    </form> --
+                    </form> 
                     @include('back-end.pages.UpdateImagePopup')
                       
           </div>
           </div>
           </div>
           </div>
-          
-
-         
-          
-
-         
            <!-- Image Gallery -->
            <div>
   <div class="block-header">
-      
   </div>
   <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -168,16 +165,18 @@
                               </a> --}}
                               
                               <a href="{{route('delete-video',$video->id)}}" class="btn btn-danger btn-sm">Delete</a>
-
+                              <a href="#" class="btn btn-danger btn-sm" onclick="  
+                              confirm('Are you sure you want to delete this video ?') ? document.getElementById('delete-video-{{$video->id}}').submit() : ''  ">delete images</a>
                           </div>
+                          <form action="{{route('delete-video',$video->id)}}" method="post" id="delete-video-{{$video->id}}">
+                            @csrf
+                            @method('DELETE')
+                        </form> 
                       @endforeach
                       
                       <a href="#" data-toggle="modal" data-target="#add-video-{{ $showcourse->id }}" class="btn btn-success btn-sm p-5">Add video</a>
-                      {{-- <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete images for {{$showProducts->name  }} ?') ? document.getElementById('delete-product-image-{{$showProducts->id}}').submit() : ''  ">delete images</a>
-                      <form action="/product-image-delete/{{ $showProducts->id }}" method="post" id="delete-product-image-{{$showProducts->id}}">
-                          @csrf
-                          @method('DELETE')
-                      </form> --}}
+                      {{-- <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete images for {{$showProducts->name  }} ?') ? document.getElementById('delete-product-image-{{$showProducts->id}}').submit() : ''  ">delete images</a>--}}
+                     
                       @include('back-end.pages.VideoAdd')
                      
                       </div>

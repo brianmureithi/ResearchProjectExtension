@@ -41,7 +41,7 @@
                      
                     </div>
                     <div class="fallback">
-                        <input name="video[]" type="file" multiple />
+                        <input name="video" type="file" multiple />
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                
             
                 <br>
-                <button type="submit" name="submit" class="btn btn-primary m-t-15 waves-effect">Add Image</button>
+                <button type="submit" name="submit" class="btn btn-primary m-t-15 waves-effect">Add Video</button>
             </form>
         </div>
         <div class="modal-footer">

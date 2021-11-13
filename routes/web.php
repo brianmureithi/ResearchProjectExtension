@@ -15,7 +15,7 @@ use App\Http\Middleware\Authchecker;
 */
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () { 
-    Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
+    Route::get('/payment/{id}', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
     Route::get('/subscribed-courses',[App\Http\Controllers\CourseController::class, 'subscribedCourses'])->name('my-courses');
     Route::get('/course-content/{id}',[App\Http\Controllers\CourseController::class, 'coursecontent'])->name('view-course-content');
     Route::post('/subscribe-free/{id}',[App\Http\Controllers\CourseController::class, 'subscribeFree'])->name('subscribe-free');
@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 });
- Route::get('/payment', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment');
+ /* Route::get('/payment/{id}', [App\Http\Controllers\CourseController::class, 'payment'])->name('payment'); */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('frontend.index');
 Route::get('/courses', [App\Http\Controllers\CourseController::class, 'courses'])->name('courses');
 Route::get('/about', [App\Http\Controllers\Controller::class, 'aboutus'])->name('about');
@@ -54,12 +54,13 @@ Route::delete('/delete-subscriber/{id}', [App\Http\Controllers\CourseController:
 Route::get('/messages', [App\Http\Controllers\Controller::class, 'contactsbackend'])->name('contacts-backend');
 Route::delete('/delete-message/{id}', [App\Http\Controllers\Controller::class, 'deletemessage'])->name('destroy-message-route');
 Route::delete('/delete-image/{id}', [App\Http\Controllers\CourseController::class, 'deleteimage'])->name('destroy-image-route');
+Route::delete('/delete-video/{id}', [App\Http\Controllers\CourseController::class, 'deletevideo'])->name('delete-video');
 Route::get('/admin',[App\Http\Controllers\MainAuthController::class, 'login'])->name('login-route');
 Route::post('/admin',[App\Http\Controllers\MainAuthController::class, 'check'])->name('login-check-user-route');
 Route::get('/admin-register',[App\Http\Controllers\MainAuthController::class, 'register'])->name('register-route');
 Route::get('/admin-logout',[App\Http\Controllers\MainAuthController::class, 'logout'])->name('logout-route');
 Route::post('/admin-register',[App\Http\Controllers\MainAuthController::class, 'save'])->name('save-user-route');
-Route::post('/add-video',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
+Route::post('/add-video/{id}',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
 
 Route::put('/course-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourse'])->name('update-course-route');
 Route::put('/course-image-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourseimage'])->name('update-course-image');

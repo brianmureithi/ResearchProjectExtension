@@ -5,7 +5,24 @@
  <!-- ======= Popular Courses Section ======= -->
  <section id="popular-courses" class="courses">
     <div class="container" data-aos="fade-up">
-
+      @if ($message = Session::get('success-newsletter'))
+      <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+      </div>
+      @elseif($message = Session::get('fail-newsletter'))
+          <div class="alert alert-danger">
+              <p>{{ $message }}</p>
+        </div>              
+      @endif 
+      @if ($message = Session::get('success-subscribe'))
+      <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+      </div>
+      @elseif($message = Session::get('fail-subscribe'))
+          <div class="alert alert-danger">
+              <p>{{ $message }}</p>
+        </div>              
+      @endif 
       <div class="section-title">
         {{-- <h2>Courses</h2> --}}
         <p>All Courses</p>
@@ -33,7 +50,7 @@
               <h3><a href="course-details.html">{{ $Course->name }}</a></h3>
               <p>{{ $Course->description }}</p>
               @if($Course->amount > 0)
-              <a href="{{ route('payment'), $Course->id }}" class="get-started-btn">Pay</a>
+              <a href="{{URL::to('/payment/'.$Course->id)}}" class="get-started-btn">Pay</a>
               @else
               <a class="get-started-btn" onclick="   document.getElementById('subscribe-course-{{$Course->id}}').submit()"
                   style="background:#fea103">Subscribe</a>

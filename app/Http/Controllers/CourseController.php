@@ -118,9 +118,19 @@ class CourseController extends Controller
         return back()->with('success','Course Deleted successfuly');
         
       }
+      public function deletevideo(Request $request, $id){
+        $findVideo = Video::find($id);
+        $findVideo->delete();
+       
+       
+        return back()->with('success','Video Deleted successfuly');
+        
+      }
 
-      public function payment(){
-        return view('front-end.pages.Payment');
+      public function payment($id){
+        $getcourses=Course::find($id);
+       
+        return view('front-end.pages.Payment', compact('getcourses'));
       }
       public function subscribe(){
 
@@ -146,8 +156,10 @@ class CourseController extends Controller
       
       public function subscribeFree(Request $request, $id){
        
-      
-          
+        $findCourse = subscribed_courses::find($id);
+          if($findCourse){
+            return back()->with('fail-subscribe', 'Already subscribed to this course');
+          }else{
               subscribed_courses::create([
                 'course_id'=>$id,               
                 'user_id'=>auth()->user()->id,
@@ -156,7 +168,7 @@ class CourseController extends Controller
     
     return redirect()->route('my-courses')
     ->with('success-free','Course subscribed successfully'); 
-            
+      }  
           
         
        
@@ -190,7 +202,36 @@ class CourseController extends Controller
       }
       
       public function addVideoAdmin(Request $request, $id){
-      
+        try{ 
+        
+          $request->validate
+          ([
+              'video'=>'required',
+            
+             
+             
+          ]);
+          $data = new Video();
+         
+          $file =$request->video;
+          $filename=time().'.'.$file->getClientOriginalExtension();
+          $request->video->move('storage/img/videos',$filename);
+          $data->video=$filename;
+          $data->course_id=$id;
+
+          $data->save();
+         
+     
+        
+
+        
+          return back()->with('success', 'Video Added Successfully'); 
+
+     }catch(\Exception $e){
+        
+          return back() ->with('fail','Video addition failed, ensure all records are filled approprately');
+
+      }  
        
       }
 

@@ -11,6 +11,15 @@
         <p>{{ $message }}</p>
   </div>              
 @endif 
+@if ($message = Session::get('success-subscribe'))
+<div class="alert alert-success">
+            <p>{{ $message }}</p>
+</div>
+@elseif($message = Session::get('fail-subscribe'))
+    <div class="alert alert-danger">
+        <p>{{ $message }}</p>
+  </div>              
+@endif 
 <section id="hero" class="d-flex justify-content-center align-items-center">
     <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
       <h1>Start learning<br>Today</h1>

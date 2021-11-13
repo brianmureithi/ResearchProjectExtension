@@ -12,17 +12,25 @@
 
         
         <div class="col-lg-12 mt-5 mt-lg-0">
+          @if (count($getcourses) >= 1)
+          @foreach ($getcourses as $course)
 
           <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="phonenumber (enter valid Mpesa number) " required>
+                <input type="text" name="name" class="form-control" id="name" value="{{ Auth::user()->phone }}" placeholder="phonenumber (enter valid Mpesa number) " required>
               </div>
               <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="text" class="form-control" name="course" id="course" placeholder="Course" required>
+                
+             
+              <input type="text" class="form-control" name="course" id="course" placeholder="{{ $course->name }}" value="{{ $course->id }}"required>
+             
+               
+          
               </div>
               <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="text" class="form-control" name="amount" id="amount" placeholder="amount" required>
+
+                <input type="text" class="form-control" name="amount" id="amount" value="{{ $course->amount }}" required>
               </div>
             </div>
           
@@ -38,7 +46,8 @@
             </div> --}}
             <div class="text-center"><button type="submit">Make payment</button></div>
           </form>
-
+@endforeach
+@endif
         </div>
 
       </div>
