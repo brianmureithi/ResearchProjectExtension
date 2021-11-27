@@ -103,6 +103,9 @@ class Controller extends BaseController
             public function blogDetails(){
                 return view('front-end.pages.BlogDetails');
             }
+            public function blog(){
+                return view('front-end.pages.Blog');
+            }
             public function newslettersubscribe(Request $request){
                 try{
                     $request->validate

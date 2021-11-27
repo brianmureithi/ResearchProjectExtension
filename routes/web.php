@@ -32,6 +32,7 @@ Route::get('/contact-us', [App\Http\Controllers\Controller::class, 'contact'])->
 Route::get('/sign-in', [App\Http\Controllers\Controller::class, 'signin'])->name('sign-in');
 Route::post('/sign-in', [App\Http\Controllers\Controller::class, 'check'])->name('log-in-check');
 Route::get('/blog-details', [App\Http\Controllers\Controller::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog'])->name('blog');
 Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 Route::post('/contact-us', [App\Http\Controllers\Controller::class, 'contactus'])->name('contact-form');
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
@@ -60,6 +61,10 @@ Route::get('/admin',[App\Http\Controllers\MainAuthController::class, 'login'])->
 Route::post('/admin',[App\Http\Controllers\MainAuthController::class, 'check'])->name('login-check-user-route');
 Route::get('/admin-register',[App\Http\Controllers\MainAuthController::class, 'register'])->name('register-route');
 Route::get('/admin-logout',[App\Http\Controllers\MainAuthController::class, 'logout'])->name('logout-route');
+Route::get('/admin-course-subscribed',[App\Http\Controllers\CourseController::class, 'adminSubscribedCourses'])->name('admin-subscribed-courses');
+Route::get('/add-blog',[App\Http\Controllers\Controller::class, 'addBlog'])->name('add-post');
+Route::get('/view-posts',[App\Http\Controllers\Controller::class, 'ViewPosts'])->name('view-posts');
+Route::get('/view-post',[App\Http\Controllers\Controller::class, 'ViewPost'])->name('view-post');
 Route::post('/admin-register',[App\Http\Controllers\MainAuthController::class, 'save'])->name('save-user-route');
 Route::post('/add-video/{id}',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
 

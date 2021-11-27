@@ -19,4 +19,9 @@ class subscribed_courses extends Model
         return  $this->belongsTo(Course::class);
 
 }
+/* public function subscriptions(){
+      
+    return  $this->belongsTo(User::class);
+
+} */
 }

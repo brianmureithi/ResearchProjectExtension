@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
@@ -160,8 +161,11 @@ class CourseController extends Controller
       
       public function subscribeFree(Request $request, $id){
        
-        $findCourse = subscribed_courses::find($id);
-          if($findCourse){
+       /*  $findCourse = subscribed_courses::find($id); */
+       /*  Table::select('name','surname')->where('id', 1)->get(); */
+        $user = DB::table('subscribed_courses')->where(['course_id'=>$id, 'user_id' => auth()->user()->id])->first();
+        
+          if($user){
             return back()->with('fail-subscribe', 'Already subscribed to this course');
           }else{
               subscribed_courses::create([
@@ -239,6 +243,11 @@ class CourseController extends Controller
 
       }  
        
+      }
+      public function adminSubscribedCourses (){
+        
+        $subscribedCourses=Course::all()->with('subscriptions','users')->get();
+return view('back-end.pages.SubscribedCourses', compact('newslettersubscribers'));
       }
 
       

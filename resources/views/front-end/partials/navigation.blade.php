@@ -16,7 +16,7 @@
           <li><a href="{{ route('courses') }}">Courses</a></li>
          
           <li><a href="{{ route('my-courses') }}">My courses</a></li>
-          <li><a href="{{ route('blog-details') }}">Blog</a></li>
+          <li><a href="{{ route('blog') }}">Blog</a></li>
           <li><a href="{{ route('contact') }}">Contact us</a></li>
           @guest
           @if (Route::has('login'))

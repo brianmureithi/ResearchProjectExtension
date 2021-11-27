@@ -59,6 +59,7 @@
 
                                 <h3><a href="#">{{ $Course->name }}</a></h3>
                                 <p>{{ $Course->description }}</p>
+                              
                                 @if ($Course->amount > 0)
                                     <a href="{{route('payment',$Course->id)}}" class="get-started-btn">Pay</a>
                              
@@ -77,16 +78,16 @@
                                 <a href="#" data-toggle="modal" data-target="#view-demo-{{ $Course->id }}"
                                     class="get-started-btn learn-more-btn" style="background:#1aa3e8 !important;">View
                                     Demo</a>
-                                <form action="{{ route('subscribe-free', $Course->id) }}" method="post"
-                                    id="subscribe-course-{{ $Course->id }}">
-                                    @csrf
-
-                                </form>
+                              
                                 @include('front-end.pages.ViewDemo')
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                     <form action="{{ route('subscribe-free', $Course->id) }}" method="post"
+                        id="subscribe-course-{{ $Course->id }}">
+                        @csrf
 
+                    </form>
 
                 @empty
                     <div> <span class="alert alert-success">No Courses available</span>
