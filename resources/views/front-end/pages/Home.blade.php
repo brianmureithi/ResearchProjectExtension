@@ -38,11 +38,11 @@
             </div>
 
 
-            <div class="row" data-aos="zoom-in" data-aos-delay="100">
+            <div class="home" data-aos="zoom-in" data-aos-delay="100">
+               
                 @forelse($showCourses as $Course)
-
                     <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-
+                   
                         <div class="course-item">
 
                             <img src="{{ URL::asset('/storage/img/courseImages/' . $Course->image) }}"
@@ -68,21 +68,22 @@
 
                                     <a href="#"
                                         onclick="document.getElementById('subscribe-course-{{ $Course->id }}').submit()"
-                                        class="get-started-btn" style="background:#fea103">Subscribe</a>
+                                        class="get-started-btn" style="background:#fea103;color:#000;cursor:pointer">Subscribe</a>
 
 
                                 @endif
 
-
-
-                                <a href="#" data-toggle="modal" data-target="#view-demo-{{ $Course->id }}"
-                                    class="get-started-btn learn-more-btn" style="background:#1aa3e8 !important;">View
+                            
+                                <a  data-toggle="modal" data-target="#view-demo-{{ $Course->id }}" id="btn" class="get-started-btn learn-more-btn" style="background:#1aa3e8 !important;cursor:pointer;color:#fff">View
                                     Demo</a>
+                                   
+                                    
                               
-                                @include('front-end.pages.ViewDemo')
+                              
                             </div>
                         </div>
                     </div> 
+                    @include('front-end.pages.ViewDemo')
                      <form action="{{ route('subscribe-free', $Course->id) }}" method="post"
                         id="subscribe-course-{{ $Course->id }}">
                         @csrf
@@ -95,6 +96,7 @@
                     </div>
 
                 @endforelse
+             
 
                 {{-- @forelse($showCourses as $Course)
         <div class="col-lg-4 col-md-6 d-flex align-items-stretch">         

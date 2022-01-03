@@ -5,7 +5,7 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="{{ route('frontend.index') }}" class="logo me-auto">
         <img src="{{ asset('storage/img/front-end/logo.jpg') }}" alt="" class="img-fluid">
-        <h5 class="logo me-auto"><a href="{{ route('frontend.index') }}">Research, Production, & extension</a></h5>
+        <h5 class="logo me-auto"><a href="{{ route('frontend.index') }}" style="padding:2px"> Research, Production extension</a></h5>
       </a>
   
 
@@ -16,12 +16,20 @@
           <li><a href="{{ route('courses') }}">Courses</a></li>
          
           <li><a href="{{ route('my-courses') }}">My courses</a></li>
-          <li><a href="{{ route('blog') }}">Blog</a></li>
+         
+          <li class="dropdown"><a href="{{ route('blog') }}"><span>Blog</span> <i class="bi bi-chevron-down"></i></a>
+          <ul>
+            <li><a href="{{ route('faqs') }}">F.A.Qs</a></li>
+
+          </ul>
+          </li>
           <li><a href="{{ route('contact') }}">Contact us</a></li>
           @guest
           @if (Route::has('login'))
           <li class="dropdown"><a href="{{ route('login') }}"><span>{{ __('Login') }}</span> <i class="bi bi-chevron-down"></i></a>
-           @endif
+
+        
+            @endif
             <ul>
               @if (Route::has('register'))
               <li><a href="{{ route('register') }}">{{ __('Register') }}</a></li>

@@ -23,11 +23,11 @@ class User extends Authenticatable
         return  $this->belongsTo(Course::class);
 
 }
-   /*  public function user(){
+     public function subscriptions(){
       
         return  $this->hasMany(subscribed_courses::class);
 
-} */
+} 
 /**
      * The attributes that should be hidden for arrays.
      *
