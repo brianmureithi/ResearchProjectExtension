@@ -90,16 +90,15 @@
                 </a>
                 <ul class="ml-menu">
                     <li>
-                        <a href="{{route('add-post')}}">
-                            <span>New Post</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('view-posts')}}">
+                        <a href="">
                             <span>Manage Posts</span>
                         </a>
                     </li>
-                  
+                    <li>
+                        <a href="">
+                            <span>New Post</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -110,16 +109,15 @@
 
                 <ul class="ml-menu">
                     <li>
-                        <a href="{{route('addfaqs')}}">
-                            <span>New FAQS</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="">
                             <span>Manage FAQS</span>
                         </a>
                     </li>
-                   
+                    <li>
+                        <a href="">
+                            <span>New FAQS</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
@@ -132,7 +130,7 @@
 
 
             <li>
-                <a href="{{ route('dashboard') }}">
+                <a href="">
                     <i class="material-icons">payment</i>
                     <span>Payments</span>
                 </a>

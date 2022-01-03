@@ -15,14 +15,12 @@
          
           @foreach ($getcourses as $course)
 
-          <form action="#" method="post" role="form" class="php-email-form">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="row">
-              
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <label for="course">User Id  </label>  
-                <input type="text" class="form-control" name="user_id" id="user_id" value="{{Auth::user()->id }}" required readonly>
+              <div class="col-md-6 form-group">
+                <label for="phone">Phone number</label>
+                <input type="text" id="phone" name="name" class="form-control" id="name" value="{{ Auth::user()->phone }}" placeholder="phonenumber (enter valid Mpesa number) " required>
               </div>
-             
               <div class="col-md-6 form-group mt-3 mt-md-0">
                 <label for="course">Course Id </label>           
               <input type="text" id="course" class="form-control" name="course" id="course" placeholder="{{ $course->name }}" value="{{ $course->id }} "required readonly>
@@ -34,17 +32,10 @@
                 <label for="course">Course Amount </label>  
                 <input type="text" class="form-control" name="amount" id="amount" value="{{ $course->amount }}" required readonly>
               </div>
-
-              <div class="col-md-6 form-group">
-                <label for="phone">Phone number</label>
-                <input type="text" id="phone" name="name" class="form-control" id="name" value="{{ Auth::user()->phone }}" placeholder="phonenumber (enter valid Mpesa number) " required>
-            
-              </div>
-            
             </div>
-            <span class="alert-danger"> <small>Ensure you have sufficient funds, and the phonenumber is a valid Mpesa number</small></span>
-           
           
+           
+            <span class="alert-danger"> <small>Ensure you have sufficient funds</small></span>
            {{--  <div class="form-group mt-3">
               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
             </div>
@@ -53,7 +44,7 @@
               <div class="error-message"></div>
               <div class="sent-message">Your message has been sent. Thank you!</div>
             </div> --}}
-            <div class="text-center"><button id="makePayment" type="submit">Make payment</button></div>
+            <div class="text-center"><button type="submit">Make payment</button></div>
           </form>
 @endforeach
 
@@ -67,28 +58,4 @@
     <br>
     <br>
   </section><!-- End Contact Section -->
-  
-  <script type="text/javascript">
-  document.getElementById('makePayment').addEventListener('click',(event)=>{
-
-event.preventDefault();
-
-const requestBody = {
-    amount:document.getElementById('amount'),value,
-    phone:document.getElementById('phone'),value,
-    
-}
-
-axios.post('stkpush',requestBody).then((response) =>{
-    if(response.data.ResponseDescription){
-   
-    }
-    else{
-
-    }
-}).catch((error) => {
-    console.log(error);
-})
-})
-    </script>
 @endsection

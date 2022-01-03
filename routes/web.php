@@ -31,9 +31,8 @@ Route::get('/about', [App\Http\Controllers\Controller::class, 'aboutus'])->name(
 Route::get('/contact-us', [App\Http\Controllers\Controller::class, 'contact'])->name('contact');
 Route::get('/sign-in', [App\Http\Controllers\Controller::class, 'signin'])->name('sign-in');
 Route::post('/sign-in', [App\Http\Controllers\Controller::class, 'check'])->name('log-in-check');
-Route::get('/blog-details/{id}', [App\Http\Controllers\Controller::class, 'blogDetails'])->name('blog-details');
+Route::get('/blog-details', [App\Http\Controllers\Controller::class, 'blogDetails'])->name('blog-details');
 Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog'])->name('blog');
-Route::get('/faqs', [App\Http\Controllers\Controller::class, 'faqs'])->name('faqs');
 Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 Route::post('/contact-us', [App\Http\Controllers\Controller::class, 'contactus'])->name('contact-form');
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
@@ -51,7 +50,6 @@ Route::post('/add_courses', [App\Http\Controllers\CourseController::class, 'addc
 Route::post('/add_video', [App\Http\Controllers\CourseController::class, 'addvideo'])->name('add-video-in-course-add');
 Route::get('/view-all-courses', [App\Http\Controllers\CourseController::class, 'viewcourses'])->name('view-courses');
 Route::get('/view-course/{id}', [App\Http\Controllers\CourseController::class, 'viewcourse'])->name('view-course');
-
 Route::delete('/delete-course/{id}', [App\Http\Controllers\CourseController::class, 'deletecourse'])->name('destroy-course');
 Route::get('/newsletter-subscribers', [App\Http\Controllers\CourseController::class, 'newsletterbackend'])->name('newsletter-backend');
 Route::delete('/delete-subscriber/{id}', [App\Http\Controllers\CourseController::class, 'subscriberdelete'])->name('destroy-subscriber-route');
@@ -59,30 +57,21 @@ Route::get('/messages', [App\Http\Controllers\Controller::class, 'contactsbacken
 Route::delete('/delete-message/{id}', [App\Http\Controllers\Controller::class, 'deletemessage'])->name('destroy-message-route');
 Route::delete('/delete-image/{id}', [App\Http\Controllers\CourseController::class, 'deleteimage'])->name('destroy-image-route');
 Route::delete('/delete-video/{id}', [App\Http\Controllers\CourseController::class, 'deletevideo'])->name('delete-video');
-Route::delete('/delete-post/{id}', [App\Http\Controllers\PostController::class, 'deletepost'])->name('destroy-post-route');
 Route::get('/admin',[App\Http\Controllers\MainAuthController::class, 'login'])->name('login-route');
 Route::post('/admin',[App\Http\Controllers\MainAuthController::class, 'check'])->name('login-check-user-route');
 Route::get('/admin-register',[App\Http\Controllers\MainAuthController::class, 'register'])->name('register-route');
 Route::get('/admin-logout',[App\Http\Controllers\MainAuthController::class, 'logout'])->name('logout-route');
 Route::get('/admin-course-subscribed',[App\Http\Controllers\CourseController::class, 'adminSubscribedCourses'])->name('admin-subscribed-courses');
-Route::get('/add-post',[App\Http\Controllers\Controller::class, 'addPost'])->name('add-post');
-Route::get('/view-posts',[App\Http\Controllers\Controller::class, 'viewPosts'])->name('view-posts');
-
-Route::get('/view-post/{id}',[App\Http\Controllers\Controller::class, 'viewPost'])->name('view-post');
+Route::get('/add-blog',[App\Http\Controllers\Controller::class, 'addBlog'])->name('add-post');
+Route::get('/view-posts',[App\Http\Controllers\Controller::class, 'ViewPosts'])->name('view-posts');
+Route::get('/view-post',[App\Http\Controllers\Controller::class, 'ViewPost'])->name('view-post');
 Route::post('/admin-register',[App\Http\Controllers\MainAuthController::class, 'save'])->name('save-user-route');
 Route::post('/add-video/{id}',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
-Route::post('/add-post',[App\Http\Controllers\PostController::class, 'addPostSave'])->name('add-new-post-route.store');
-Route::post('/post-add-image/{id}',[App\Http\Controllers\PostController::class, 'addpostimage'])->name('add-post-image');
-
 
 Route::put('/course-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourse'])->name('update-course-route');
 Route::put('/course-image-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourseimage'])->name('update-course-image');
-Route::put('/post-edit/{id}', [App\Http\Controllers\PostController::class, 'updatepost'])->name('update-post-route');
-Route::delete('/post-image-delete/{id}', [App\Http\Controllers\PostController::class, 'deletepostimage'])->name('destroy-post-images-route');
-Route::get('/add_faqs',[App\Http\Controllers\Controller::class, 'addfaq'])->name('addfaqs');
-Route::post('/add_faqs',[App\Http\Controllers\Controller::class, 'faqAdd'])->name('addfaqs.store');
-}); 
 
+ }); 
 
 
 

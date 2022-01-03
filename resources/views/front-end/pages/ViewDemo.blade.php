@@ -1,26 +1,22 @@
-<div class="modal fade" id="view-demo-{{ $Course->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+<div class="modal fade" id="view-demo-{{$Course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">View Demo for: <strong class="text-success">(
-                        {{ $Course->name }}) </strong></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <iframe src="{{ URL::asset('/storage/img/videos/' . $Course->videos->first()->video) }}"
-                    style="height:40vh;width:100%;">
-                </iframe>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-            </div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">View Demo for: <strong class="text-success">( {{$Course->name}}) </strong></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+         
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-</div>
-{{-- <div class="modal fade" id="view-demo-{{$Course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  </div> 
+ {{-- <div class="modal fade" id="view-demo-{{$Course->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -68,4 +64,5 @@
         </div>
       </div>
     </div>
-  </div> --}}
+  </div> 
+   --}}
