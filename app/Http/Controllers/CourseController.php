@@ -215,6 +215,7 @@ class CourseController extends Controller
           $request->validate
           ([
               'video'=>'required',
+              'description'=>'required',
             
              
              
@@ -228,8 +229,8 @@ class CourseController extends Controller
           $data->video=$filename;
           $data->description=$description;
           $data->course_id=$id;
-
           $data->save();
+
          
      
         
@@ -246,8 +247,9 @@ class CourseController extends Controller
       }
       public function adminSubscribedCourses (){
         
-        $subscribedCourses=Course::all()->with('subscriptions','users')->get();
-return view('back-end.pages.SubscribedCourses', compact('newslettersubscribers'));
+        $subscribedCourses=subscribed_courses::with(['course','user'])->get();
+      
+return view('back-end.pages.SubscribedCourses', compact('subscribedCourses'));
       }
 
       

@@ -230,5 +230,18 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    'debug' => [
+        '_ENV' => [
+            'MPESA_CONSUMER_SECRET',
+      'MPESA_CONSUMER_KEY',
+'MPESA_SHORTCODE',
+'MPESA_ST_SHORTCODE',
+'MPESA_ENV',
+'MPESA_MSISDN',
+'MPESA_TEST_URL',
+'MPESA_PASSKEY',
+'MPESA_B2C_PASSWORD'
+        ]
+    ]
 
 ];

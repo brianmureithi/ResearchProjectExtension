@@ -9,9 +9,11 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Course;
+use App\Models\Posts;
 use App\Models\User;
 use App\Models\Newslettersubscribe;
 use App\Models\Contact;
+use App\Models\Faqs;
 
 class Controller extends BaseController
 {
@@ -100,12 +102,17 @@ class Controller extends BaseController
                             }*/
 
 
-            public function blogDetails(){
-                return view('front-end.pages.BlogDetails');
+            public function blogDetails($id){
+                $postdetails=Posts::where('id','=',$id)->with(['postimages'])->get();  
+                
+                return view('front-end.pages.BlogDetails',compact('postdetails'));
             }
             public function blog(){
-                return view('front-end.pages.Blog');
+                $findpost=Posts::with(['postimages'])->get();
+         /*  dd($findpost); */
+                return view('front-end.pages.Blog',compact('findpost'));
             }
+        
             public function newslettersubscribe(Request $request){
                 try{
                     $request->validate
@@ -136,6 +143,7 @@ class Controller extends BaseController
                     'message'=>'required',
                   
         ]);
+        
         $contact= new Contact;
         $contact->name = $request->name;
         $contact->email = $request->email;
@@ -166,5 +174,66 @@ else{
           
                
               }
+              public function addPost(){
+                  return view('back-end.pages.AddPost');
+
+              }
+
+              public function viewPosts(){
+                  $showposts=Posts::all();
+                  return view('back-end.pages.ViewPosts', compact('showposts'));
+              }
+              public function viewPost($id){
+                $showpost = Posts::with('postimages')->where('id',$id)->get();
+                return view('back-end.pages.ViewPost',compact('showpost'));
+            }
+
+            public function faqs(){
+                return view('front-end.pages.Faqs');
+            }
+
+            public function addfaq(){
+                return view('back-end.pages.AddFaq');
+            }
+
+ public function faqAdd(){
+
+    Faqs::create([
+        'answer'=>$request->answer,
+        'question'=>$request->question,
+    
+    ]);
+    
+    return back()->with('success-faq','FAQ added successfully');
+ /*    try{ */
+                
+/* $request->validate([
+                    'question'=>'required',
+                    'answer'=>'required',
+                               
+        ]); 
+        $faq= new Faqs;
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+       
+        
+$save= $faq->save();
+if($save){
+    return back()->with('success-faq','FAQ added successfully');
+}
+else{
+    return back()->with('fail-faq','Something went wrong, try again');
+}
+      
+      */
+    /* }
+    catch(\Exception $e){
+    
+        return back()->with('fail-faq','Something went terribly wrong, try again');
+    }    
+     */
+
+            }
+
 
 }
