@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-/* Route::post('/stkpush',[App\Http\Controllers\MpesaController::class, 'stkPush'])->name('stkpush.post'); */
+Route::post('/stkpush',[App\Http\Controllers\MpesaController::class, 'stkPush'])->name('stkpush.post');
