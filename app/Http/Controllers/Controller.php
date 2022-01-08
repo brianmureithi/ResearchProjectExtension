@@ -19,13 +19,18 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        $showCourses = Course::with('videos')->get();
+        $showCourses = Course::with(['videos'=> function($query){
+            $query->orderBy('created_at', 'asc')->take(1);
+        }])->get();
+        $showvid = Course::with('videos')->first();
         
-        return view('front-end.pages.Home', compact('showCourses'));
+        return view('front-end.pages.Home', compact('showCourses', 'showvid'));
 
     }
     public function courses(){
-        $showCourses = Course::with('videos')->get();
+        $showCourses = Course::with(['videos'=> function($query){
+            $query->orderBy('created_at', 'asc')->take(1);
+        }])->get();
 
         return view('front-end.pages.Courses', compact('showCourses'));
 
@@ -108,7 +113,9 @@ class Controller extends BaseController
                 return view('front-end.pages.BlogDetails',compact('postdetails'));
             }
             public function blog(){
-                $findpost=Posts::with(['postimages'])->get();
+                $findpost=Posts::with(['postimages'=> function($query){
+                    $query->orderBy('created_at', 'asc')->take(1);
+                }])->get();
          /*  dd($findpost); */
                 return view('front-end.pages.Blog',compact('findpost'));
             }
@@ -196,18 +203,8 @@ else{
                 return view('back-end.pages.AddFaq');
             }
 
- public function faqAdd(){
-
-    Faqs::create([
-        'answer'=>$request->answer,
-        'question'=>$request->question,
-    
-    ]);
-    
-    return back()->with('success-faq','FAQ added successfully');
- /*    try{ */
-                
-/* $request->validate([
+ public function faqAdd(Request $request){          
+ $request->validate([
                     'question'=>'required',
                     'answer'=>'required',
                                
@@ -225,14 +222,35 @@ else{
     return back()->with('fail-faq','Something went wrong, try again');
 }
       
-      */
-    /* }
+    
+    /*  }
     catch(\Exception $e){
     
         return back()->with('fail-faq','Something went terribly wrong, try again');
-    }    
-     */
+    }   */  
+     
 
+            }
+
+            public function adminViewFaqs(){
+
+                $showFaqs= Faqs::all();
+                return view('back-end.pages.ViewFaqs', compact('showFaqs'));
+            }
+
+            public function updatefaq(Request $request, $id){
+                $findFaq = Faqs::find($id);
+                $findFaq->update( $request->except(['_token', '_method' ]));
+                return back()->with('success','Faq updated successfuly');
+        
+            }
+
+            public function deletefaq($id){
+                $findFaq = Faqs::find($id);
+                $findFaq->delete();
+                return back()->with('success','Faq Deleted successfully');
+        
+           
             }
 
 

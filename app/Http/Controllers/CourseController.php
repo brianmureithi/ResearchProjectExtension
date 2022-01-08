@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\Video;
+use App\Models\User;
 use App\Models\subscribed_courses;
 use App\Models\Newslettersubscribe;
 
@@ -67,17 +68,20 @@ class CourseController extends Controller
               'video'=>'required',
               'course_id'=>'required',
               'description'=>'required',
-             
+              'lesson'=>'required',
+                           
              
              
           ]);
           $data = new Video();
           $course_id=$request->input('course_id');
           $description=$request->input('description');
+          $lesson=$request->input('lesson');
           $file =$request->video;
           $filename=time().'.'.$file->getClientOriginalExtension();
           $request->video->move('storage/img/videos',$filename);
           $data->video=$filename;
+          $data->lesson=$lesson;
           $data->course_id=$course_id;
           $data->description=$description;
 
@@ -216,6 +220,8 @@ class CourseController extends Controller
           ([
               'video'=>'required',
               'description'=>'required',
+              'lesson'=>'required',
+
             
              
              
@@ -224,10 +230,12 @@ class CourseController extends Controller
          
           $file =$request->video;
           $description =$request->description;
+          $lesson =$request->lesson;
           $filename=time().'.'.$file->getClientOriginalExtension();
           $request->video->move('storage/img/videos',$filename);
           $data->video=$filename;
           $data->description=$description;
+          $data->lesson=$lesson;
           $data->course_id=$id;
           $data->save();
 
@@ -247,7 +255,9 @@ class CourseController extends Controller
       }
       public function adminSubscribedCourses (){
         
-        $subscribedCourses=subscribed_courses::with(['course','user'])->get();
+        $subscribedCourses=subscribed_courses::with('course','user')->get();
+ /* 
+       dd($subscribedCourses);  */
       
 return view('back-end.pages.SubscribedCourses', compact('subscribedCourses'));
       }

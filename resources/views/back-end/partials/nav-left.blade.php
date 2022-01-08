@@ -115,7 +115,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{route('admin-view-faqs')}}">
                             <span>Manage FAQS</span>
                         </a>
                     </li>

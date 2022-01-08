@@ -53,8 +53,13 @@
 <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
 
 <div class="col-md-12">
+  <label for="lesson">Lesson number</label>
+  <input name="lesson" class="form-control" placeholder="Enter the lesson number. The Demo should be lesson 1 Eg. Lession 1"id="lesson" type="text"/>
+
+</div>
+<div class="col-md-12">
   <label for="description"> Video description</label>
-  <input name="description" class="form-control" placeholder="Enter description Eg. Lession 1 etc"id="description" type="text"/>
+  <input name="description" class="form-control" placeholder="Enter a small description about the lesson or video"id="description" type="text"/>
 
 </div>
                

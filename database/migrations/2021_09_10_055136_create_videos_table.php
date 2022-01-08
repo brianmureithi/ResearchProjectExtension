@@ -17,6 +17,7 @@ class CreateVideosTable extends Migration
             $table->bigIncrements('id');
             $table->string('video');
             $table->string('description');
+            $table->string('lesson');
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->timestamps();

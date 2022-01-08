@@ -68,8 +68,8 @@
 
                                     <a href="#"
                                         onclick="document.getElementById('subscribe-course-{{ $Course->id }}').submit()"
-                                        class="get-started-btn" style="background:#fea103;color:#000;cursor:pointer">Subscribe</a>
-
+                                        class="get-started-btn" style="background:#b3a632;color:#fff;cursor:pointer">Subscribe</a>
+                                      {{--   b3a632 --}}
 
                                 @endif
 

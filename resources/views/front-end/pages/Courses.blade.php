@@ -53,7 +53,7 @@
               <a href="{{URL::to('/payment/'.$Course->id)}}" class="get-started-btn">Pay</a>
               @else
               <a class="get-started-btn" onclick="   document.getElementById('subscribe-course-{{$Course->id}}').submit()"
-                  style="background:#fea103;color:#000;cursor:pointer">Subscribe</a>
+                  style="background:#b3a632;color:#fff;cursor:pointer">Subscribe</a>
               @endif
               <a href="" data-toggle="modal" data-target="#view-demo-{{$Course->id}}"  class="get-started-btn learn-more-btn"style="background:#1aa3e8 !important;">View Demo</a>
               @include('front-end.pages.ViewDemo') 

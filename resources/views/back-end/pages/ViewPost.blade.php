@@ -62,7 +62,7 @@
         </div>
     </div>
 </div>
-@endforeach
+
 <!-- #END# CPU Usage -->
 <div class="container-fluid">
     <!-- Image Gallery -->
@@ -110,13 +110,13 @@
                             </a>
                         </div>
                         @endforeach
-                        <a href="#" data-toggle="modal" data-target="#add-image" class="btn btn-success btn-sm p-5">Add Image</a>
+                        <a href="#" data-toggle="modal" data-target="#add-image-{{$post->id}}" class="btn btn-success btn-sm p-5">Add Image</a>
                         <a href="#" class="btn btn-danger btn-sm" onclick="  confirm('You are about to delete images for {{$post->title }} ?') ? document.getElementById('delete-post-{{$post->id}}').submit() : ''  ">delete images</a>
                         <form action="{{ route('destroy-post-images-route',$post->id) }}" method="post" id="delete-post-{{$post->id}}">
                             @csrf
                             @method('DELETE')
                         </form>
-                        @include('back-end.pages.addpostimage')
+                        @include('back-end.pages.AddPostImagePopup') 
                         </div>
                     </div>
                 </div>
@@ -127,5 +127,5 @@
 
         </div>
         </div>
-      
+        @endforeach
 </section>

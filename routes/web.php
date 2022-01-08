@@ -60,6 +60,7 @@ Route::delete('/delete-message/{id}', [App\Http\Controllers\Controller::class, '
 Route::delete('/delete-image/{id}', [App\Http\Controllers\CourseController::class, 'deleteimage'])->name('destroy-image-route');
 Route::delete('/delete-video/{id}', [App\Http\Controllers\CourseController::class, 'deletevideo'])->name('delete-video');
 Route::delete('/delete-post/{id}', [App\Http\Controllers\PostController::class, 'deletepost'])->name('destroy-post-route');
+Route::delete('/delete-faq/{id}', [App\Http\Controllers\Controller::class, 'deletefaq'])->name('destroy-faq-route');
 Route::get('/admin',[App\Http\Controllers\MainAuthController::class, 'login'])->name('login-route');
 Route::post('/admin',[App\Http\Controllers\MainAuthController::class, 'check'])->name('login-check-user-route');
 Route::get('/admin-register',[App\Http\Controllers\MainAuthController::class, 'register'])->name('register-route');
@@ -71,6 +72,8 @@ Route::get('/view-posts',[App\Http\Controllers\Controller::class, 'viewPosts'])-
 Route::get('/view-post/{id}',[App\Http\Controllers\Controller::class, 'viewPost'])->name('view-post');
 Route::post('/admin-register',[App\Http\Controllers\MainAuthController::class, 'save'])->name('save-user-route');
 Route::post('/add-video/{id}',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
+
+Route::post('/add-video/{id}',[App\Http\Controllers\CourseController::class, 'addVideoAdmin'])->name('add-video');
 Route::post('/add-post',[App\Http\Controllers\PostController::class, 'addPostSave'])->name('add-new-post-route.store');
 Route::post('/post-add-image/{id}',[App\Http\Controllers\PostController::class, 'addpostimage'])->name('add-post-image');
 
@@ -78,9 +81,12 @@ Route::post('/post-add-image/{id}',[App\Http\Controllers\PostController::class, 
 Route::put('/course-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourse'])->name('update-course-route');
 Route::put('/course-image-update/{id}', [App\Http\Controllers\CourseController::class, 'updatecourseimage'])->name('update-course-image');
 Route::put('/post-edit/{id}', [App\Http\Controllers\PostController::class, 'updatepost'])->name('update-post-route');
+Route::put('/faq-edit/{id}', [App\Http\Controllers\Controller::class, 'updatefaq'])->name('update-faq-route');
 Route::delete('/post-image-delete/{id}', [App\Http\Controllers\PostController::class, 'deletepostimage'])->name('destroy-post-images-route');
 Route::get('/add_faqs',[App\Http\Controllers\Controller::class, 'addfaq'])->name('addfaqs');
 Route::post('/add_faqs',[App\Http\Controllers\Controller::class, 'faqAdd'])->name('addfaqs.store');
+
+Route::get('/admin_view_faqs',[App\Http\Controllers\Controller::class, 'adminViewFaqs'])->name('admin-view-faqs');
 }); 
 
 

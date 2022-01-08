@@ -19,19 +19,28 @@
                     <div class="col-lg-12">
                         {{-- <img src="assets/img/course-details.jpg" class="img-fluid" alt=""> --}}
                         <h3>Videos</h3>
-                        <div class="course-conten">
-                            @foreach ($coursecontent->videos as $video)
+                        <div class="course-conten col-lg-12">
+                            @forelse ($coursecontent->videos as $video)
 
 
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 course-ite">
-                                    <iframe src="{{ URL::asset('/storage/img/videos/' . $video->video) }}"
-                                        style="height:40vh">
+                                   <div> 
+                                    <iframe style="width:100%; height:40vh;padding:5px"src="{{ URL::asset('/storage/img/videos/' . $video->video) }}"
+                                        >
                                     </iframe>
-                                    <div class="desc-container">
-                                    <p class="video-description">{{ $video->description }}</p>
+                                </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3"">
+                                    <h4 class="video-description" style="padding: 8px;">{{ $video->lesson }}</h4>
+                                    </div>
+                                    <div class="course-des">
+                                    <div class="course-desc"><p>{{ $video->description }}</p></div>
                                     </div>
                                 </div>
-                            @endforeach
+                                @empty
+                                <div class="alert alert-danger" style="margin:60px 10px">
+                                    <p>There are currently no videos for this course, please wait for admin to upload, thankyou.</p>
+                                </div>
+                            @endforelse
                         </div>
 
 

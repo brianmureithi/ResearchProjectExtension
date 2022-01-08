@@ -119,6 +119,14 @@
                 @endforeach
                 @endif --}}
                             {{-- Alert messages --}}
+                            @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <p><strong>Opps Something went wrong</strong></p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                        @endif
                             @if ($message = Session::get('success-video'))
                                 <div class="alert alert-success">
                                     <p>{{ $message }}</p>
@@ -168,9 +176,14 @@
                                         </select>
 
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <label for="lesson">Lesson number</label>
+                                        <input name="lesson" class="form-control" placeholder="Enter the lesson number. The Demo should be lesson 1 Eg. Lession 1"id="lesson" type="text"/>
+
+                                    </div>
+                                    <div class="col-md-6">
                                         <label for="description"> Video description</label>
-                                        <input name="description" class="form-control" placeholder="Enter description Eg. Lession 1 etc"id="description" type="text"/>
+                                        <input name="description" class="form-control" placeholder="Enter a small description about the lesson or video"id="description" type="text"/>
 
                                     </div>
                                     <!-- File Upload | Drag & Drop OR With Click & Choose -->

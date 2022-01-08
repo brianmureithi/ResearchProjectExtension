@@ -46,7 +46,11 @@ h1, h2, h3, h4, h5, h6 {
 .course-conten{
   display:flex;
   flex-direction:row;
+  width:100%;
   flex-wrap: wrap;
+  border: solid 1px #d6d6d6;
+background-color: #f5f6f8;
+padding-top: 3px;
 
 }
 .desc-container{
@@ -54,11 +58,39 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to right, rgb(39, 176, 255),#046a92) ;
   border-radius: 20px;
   padding:3px;
+
   text-align: center;
   margin-left:50px;
 }
 .course-ite{
   margin:5px 25px;
+  border: solid 1px #ebe6e6;
+  background-color: #fcfcfc;
+}
+.signup{
+ 
+}
+.course-des{
+  display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+}
+.course-desc{
+  background-color: #5aa88a;
+  width:90%;
+  align-self: center;
+  height: 40px;
+  padding:2px;
+  color:white;
+  margin-bottom: 15px;
+  
+  padding: 5px;
+}
+.course-desc p{
+  font-size: 14px;
+  margin-left: 12px;
+ 
 }
 .video-description{
   font-size:16px;
@@ -98,11 +130,11 @@ color:#333;
 .read-more{
   position: absolute;
   bottom: 5px;
-  padding:5px;
+  padding:8px;
   margin-top:25px;
   border-radius:10px;
-  color:#333;
-  background: #ffe135;
+  color:#fff;
+  background: #5aa88a;
   border:none;
 }
 .blog-dets-image img{
@@ -379,7 +411,7 @@ color:#333;
 
 @media (max-width: 991px) {
   .mobile-nav-toggle {
-    display: block;
+    display: block !important;
   }
   .navbar ul {
     display: none;
@@ -597,7 +629,7 @@ section {
 }
 
 .breadcrumbs {
-  margin-top: 73px;
+
   text-align: center;
   background: #5fcf80;
   padding: 30px 0;

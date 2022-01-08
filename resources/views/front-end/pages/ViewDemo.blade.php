@@ -10,9 +10,17 @@
                 </button>
             </div>
             <div class="modal-body">
-                <iframe src="{{ URL::asset('/storage/img/videos/' . $Course->videos->first()->video) }}"
+
+             @forelse ( $Course->videos as $coursevid )
+                <iframe src="{{ URL::asset('/storage/img/videos/' . $coursevid->first()->video) }}"
                     style="height:40vh;width:100%;">
-                </iframe>
+                </iframe> 
+                @empty
+                    <div class="alert alert-danger">
+                        No Demo video available for this course at the moment
+                    </div>
+                @endforelse 
+               
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
