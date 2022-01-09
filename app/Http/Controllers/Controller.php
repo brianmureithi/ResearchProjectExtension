@@ -22,9 +22,10 @@ class Controller extends BaseController
         $showCourses = Course::with(['videos'=> function($query){
             $query->orderBy('created_at', 'asc')->take(1);
         }])->get();
+        $showsubcourse=Course::all();
         $showvid = Course::with('videos')->first();
         
-        return view('front-end.pages.Home', compact('showCourses', 'showvid'));
+        return view('front-end.pages.Home', compact('showCourses', 'showvid','showsubcourse'));
 
     }
     public function courses(){

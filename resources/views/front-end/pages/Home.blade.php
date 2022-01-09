@@ -137,6 +137,51 @@
         </div>
 
     </section><!-- End Popular Courses Section -->
+    <div id="popup">
+<div class="contentBox">
+<div id="closedd">
+
+</div>
+<div class="imgBox">
+    <img src="{{ asset('storage/img/front-end/logo.jpg') }}">
+</div>
+<div class="content">
+    <div>
+    <h3>Welcome, Subscribe to our newsletter</h3>
+    <h5>To stay informed</h5>
+    <br>
+    <form action="{{ route('newsletter-visitor') }}" method="post">
+        @csrf
+        <div style="align-text:left;"> <label for="email">Email:</label>
+            <input id="email" type="email" placeholder="Enter email" class="form-control email" name="email"></div>
+<div class="cat">
+<label for="category">Category:</label>
+<select id="category" placeholder="Enter category" class="form-control catpop" name="category">
+@foreach ($showsubcourse as $cs)
+
+<option value="{{$cs->name}}"> {{$cs->name}} </option>
+@endforeach
+</select>
+</div>
+       {{--  <div> <label for="category">Category:</label><input id="category" placeholder="Enter category"type="category" class="form-control" name="category"></div>
+        
+     --}}  
+     <div class="submitBtn">
+     <input type="submit" value="Subscribe">
+     </div>
+      </form>
+    </div>
+<div>
+
+</div>
+<div>
+
+</div>
+    </form>
+
+</div>
+</div>
+    </div>
     <div class="modal fade" id="admodal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -177,6 +222,8 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+   
 
 
 @endsection
