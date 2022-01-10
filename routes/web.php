@@ -36,6 +36,8 @@ Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog'])->name('blo
 Route::get('/faqs', [App\Http\Controllers\Controller::class, 'faqs'])->name('faqs');
 Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 Route::post('/contact-us', [App\Http\Controllers\Controller::class, 'contactus'])->name('contact-form');
+Route::get('/download/{file}',[App\Http\Controllers\Controller::class, 'downloadVideo'])->name('download-video');
+
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name('register-save'); */
 

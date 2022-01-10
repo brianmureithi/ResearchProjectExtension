@@ -166,11 +166,63 @@ border-right: solid 1px #e7e5e5;
   line-height: 1em;
   font-weight: 300;
   font-size:2em;
+  text-align: center;
 }
 .contentBox .content h5{
 font-size:1.3em;
 color:#ecb500;
+text-align: center;
 line-height: 1em;
+}
+.faq-container{
+
+}
+.faq-card{
+  display: flex;
+  width:100%;
+  padding:5px;
+  flex-direction: column;
+  margin:15px;
+  transition: padding 0.2s, background 0.2s;
+  background:rgb(255, 255, 255) ;
+ border:solid #c0c0c0 1px;
+}
+.faq-card:hover{
+padding:15px;
+background:rgb(245, 239, 239);
+}
+
+.answerr{
+
+  width:100%;
+  height:auto;
+  margin-bottom: 5px;
+  border:1px solid #c0c0c0;
+  padding:10px;
+  color:white;
+  font-size:17px;
+transition: padding 0.2s ease-in-out;
+  background:#5fcf80;
+
+}
+.answerr:hover{
+padding:20px;
+}
+.questionn:hover{
+  padding:20px;
+
+}
+
+.questionn{
+  width:100%;
+  height:auto;
+  margin-bottom: 5px;
+  padding:10px;
+  transition: padding 0.2s ease-in-out;
+  background:rgb(204, 37, 37);
+  border:1px solid #c0c0c0;
+  color:whitesmoke;
+
 }
 #closedd{
   position: absolute;
@@ -203,7 +255,8 @@ line-height: 1em;
   .contentBox .imgBox{
     height: 140px;
    
-    transform: translate(-10px);
+    transform: translate(-3px);
+    border:none;
   }
   .contentBox .imgBox img{
     
@@ -215,12 +268,14 @@ line-height: 1em;
     background:#fff;
   }
   #closedd{
-top:-10px;
-right:-10px;
+top:-45px;
+right:15px;
 background: #fff url('/storage/img/front-end/close.png');
 background-repeat: no-repeat;
 background-position: center;
 background-size: 15px;
+z-index: 10;
+ 
 
   }
   .contentBox .content{
@@ -242,18 +297,46 @@ justify-content: center;
 }
 .course-desc{
   background-color: #5aa88a;
-  width:90%;
-  align-self: center;
+  width:100%;
+ 
   height: 40px;
   padding:2px;
-  color:white;
+  position: relative;
+
   margin-bottom: 15px;
+  display: flex;
+  flex-direction: row;
   
   padding: 5px;
+}
+.download{
+position: absolute;
+right:2px;
+width:30px;
+padding:3px;
+background:#ffee00;
+
+display: flex;
+justify-content: center;
+align-items: center;
+height:30px;
+border: solid 1px #fff;
+transition:padding 0.2s,width 0.2s,height 0.2s, background 0.1s;
+border-radius: 50px;
+}
+.download:hover{
+  padding:6px;
+  width: 35px;
+  height:35px ;
+  background:#e2d302;
+}
+.downloadIc{
+font-size:16px;
 }
 .course-desc p{
   font-size: 14px;
   margin-left: 12px;
+  color:white;
  
 }
 .video-description{
@@ -298,8 +381,13 @@ color:#333;
   margin-top:25px;
   border-radius:10px;
   color:#fff;
-  background: #5aa88a;
+  background: #0caf71;
   border:none;
+  transition: padding 0.2s,background 0.2s;
+}
+.read-more:hover{
+  background:rgb(3, 141, 88);
+  padding:14px;
 }
 .blog-dets-image img{
   width: 33.33%;
@@ -438,7 +526,7 @@ color:#333;
 }
 
 .get-started-btn:hover {
-  background: #3ac162;
+  background: #157933;
   color: #fff;
 }
 
@@ -849,9 +937,17 @@ section {
   font-size: 14px;
   display: inline-block;
 }
+.courseContentBtn{
+  transition:background 0.3s ease-in-out;
+  background:#0caf71 !important;
+}
+.courseContentBtn:hover{
+  background:#0d6141 !important;
+}
+
 
 .about .content .learn-more-btn:hover {
-  background: #3ac162;
+  background: #585858 !important;
   color: #fff;
 }
 
@@ -1561,6 +1657,7 @@ section {
 .contact .php-email-form {
   width: 100%;
   background: #fff;
+  padding:3px;
 }
 
 .contact .php-email-form .form-group {

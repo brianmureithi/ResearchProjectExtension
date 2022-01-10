@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Models\Course;
+use App\Models\Contact;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,10 @@ class AppServiceProvider extends ServiceProvider
      $course=Course::all();
             $view->with(['course'=>$course]);
         });
+
+        view()->composer('back-end.partials.nav-left', function ($view) {
+            $messages=Contact::count();
+                   $view->with(['messages'=>$messages]);
+               });
     }
 }

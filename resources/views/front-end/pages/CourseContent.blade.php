@@ -24,21 +24,29 @@
 
 
                                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 course-ite">
-                                   <div> 
-                                    <iframe style="width:100%; height:40vh;padding:5px"src="{{ URL::asset('/storage/img/videos/' . $video->video) }}"
-                                        >
-                                    </iframe>
-                                </div>
+                                    <div>
+                                        <iframe style="width:100%; height:40vh;padding:5px"
+                                            src="{{ URL::asset('/storage/img/videos/' . $video->video) }}">
+                                        </iframe>
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mb-3"">
-                                    <h4 class="video-description" style="padding: 8px;">{{ $video->lesson }}</h4>
+                                        <h4 class=" video-description" style="padding: 8px;">{{ $video->lesson }}</h4>
                                     </div>
                                     <div class="course-des">
-                                    <div class="course-desc"><p>{{ $video->description }}</p></div>
+                                        <div class="course-desc">
+                                            <p>{{ $video->description }}</p>
+                                            <div onclick="window.location='{{ route('download-video',$video->video) }}'"
+                                                class="download">
+                                                <i class="fa fa-download downloadIc" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
-                                @empty
+                            @empty
                                 <div class="alert alert-danger" style="margin:60px 10px">
-                                    <p>There are currently no videos for this course, please wait for admin to upload, thankyou.</p>
+                                    <p>There are currently no videos for this course, please wait for admin to upload,
+                                        thankyou.</p>
                                 </div>
                             @endforelse
                         </div>

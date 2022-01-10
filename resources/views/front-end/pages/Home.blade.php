@@ -148,7 +148,7 @@
 <div class="content">
     <div>
     <h3>Welcome, Subscribe to our newsletter</h3>
-    <h5>To stay informed</h5>
+    <h5>Stay informed</h5>
     <br>
     <form action="{{ route('newsletter-visitor') }}" method="post">
         @csrf
@@ -167,7 +167,7 @@
         
      --}}  
      <div class="submitBtn">
-     <input type="submit" value="Subscribe">
+     <input type="submit" id="subscribe" value="Subscribe">
      </div>
       </form>
     </div>
@@ -222,7 +222,39 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+<script  type="text/javascript">
+const popup = document.getElementById('popup');
+  const close= document.getElementById('closedd');
+  const subscribebtn=document.getElementById('subscribe');
 
+window.onload = function(){
+  setTimeout(function(){
+    const popupstate = JSON.parse(sessionStorage.getItem("popupClosed"));
+    console.log(popupstate);
+    if(popupstate == null){
+    popup.style.display = "block";
+    popup.style.opacity = "1";
+  }
+  else if(popupstate == "true"){
+    popup.style.display = "none";
+    popup.style.opacity = "0";
+  }
+ 
+ 
+
+  }, 2000)
+}
+
+close.addEventListener('click',() => {
+
+  popup.style.display = "none";
+  sessionStorage.setItem("popupClosed",true)
+});
+subscribebtn.addEventListener('click', ()=>{
+  sessionStorage.setItem("popupClosed",true);
+});
+
+</script>
    
 
 

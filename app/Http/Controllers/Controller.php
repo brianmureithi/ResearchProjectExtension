@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -197,7 +198,8 @@ else{
             }
 
             public function faqs(){
-                return view('front-end.pages.Faqs');
+                $showfaqs = Faqs::all();
+                return view('front-end.pages.Faqs', compact('showfaqs'));
             }
 
             public function addfaq(){
@@ -252,6 +254,10 @@ else{
                 return back()->with('success','Faq Deleted successfully');
         
            
+            }
+
+            public function downloadVideo(Request $request, $file){
+         return response()->download(public_path('storage/img/videos/'.$file));
             }
 
 

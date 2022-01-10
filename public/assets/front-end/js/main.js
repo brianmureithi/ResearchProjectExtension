@@ -19,33 +19,9 @@
     }
   }
 
-  const popup = document.getElementById('popup');
-  const close= document.getElementById('closedd');
+  
 
 
-window.onload = function(){
-  setTimeout(function(){
-    const popupstate = JSON.parse(sessionStorage.getItem("popupClosed"));
-    console.log(popupstate);
-    if(popupstate == null){
-    popup.style.display = "block";
-    popup.style.opacity = "1";
-  }
-  else if(popupstate == "true"){
-    popup.style.display = "none";
-    popup.style.opacity = "0";
-  }
- 
- 
-
-  }, 2000)
-}
-
-close.addEventListener('click',() => {
-
-  popup.style.display = "none";
-  sessionStorage.setItem("popupClosed",true)
-})
 
 
   /**

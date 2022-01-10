@@ -50,7 +50,7 @@
         <p>{{ $coursesubscribed->course->description }}</p>
         
               
-        <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn" style="background:#5aa88a !important;">Course Content</a>
+        <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn courseContentBtn" style="background:#0caf71 !important;">Course Content</a>
         
       </div>
     </div>
