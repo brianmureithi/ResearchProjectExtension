@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authchecker;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,19 @@ Route::get('/faqs', [App\Http\Controllers\Controller::class, 'faqs'])->name('faq
 Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 Route::post('/contact-us', [App\Http\Controllers\Controller::class, 'contactus'])->name('contact-form');
 Route::get('/download/{file}',[App\Http\Controllers\Controller::class, 'downloadVideo'])->name('download-video');
+Route::get('send-email',function(){
+$details = [
+    'title'=>'Mail from Brian',
+    'body'=>'Hope you are well, test email'
+];
+$users=User::all();
 
+foreach($users as $user){
+\Mail::to($user->email)->send(new \App\Mail\TestEmail($details));
+
+dd("email is sent");
+}
+});
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name('register-save'); */
 
