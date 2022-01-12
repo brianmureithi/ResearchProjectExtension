@@ -15,7 +15,8 @@
          
           @foreach ($getcourses as $course)
 
-          <form action="#" method="post" role="form" class="php-email-form">
+          <form action="{{ route('subscribe-pay') }}" method="post" role="form" class="php-email-form">
+            @csrf
             <div class="row">
               
               <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -25,7 +26,7 @@
              
               <div class="col-md-6 form-group mt-3 mt-md-0">
                 <label for="course">Course Id </label>           
-              <input type="text" id="course" class="form-control" name="course" id="course" placeholder="{{ $course->name }}" value="{{ $course->id }} "required readonly>
+              <input type="text" id="course" class="form-control" name="course_id" id="course_id" placeholder="{{ $course->name }}" value="{{ $course->id }} "required readonly>
              <small style="color:green">{{ $course->name }}</small>
                 
           
@@ -37,7 +38,7 @@
 
               <div class="col-md-6 form-group">
                 <label for="phone">Phone number</label>
-                <input type="text" id="phone" name="name" class="form-control" id="name" value="{{ Auth::user()->phone }}" placeholder="phonenumber (enter valid Mpesa number) " required>
+                <input type="text" id="phone" name="phone" class="form-control" id="phone" value="{{ Auth::user()->phone }}" placeholder="phonenumber (enter valid Mpesa number) " required>
             
               </div>
             
@@ -69,7 +70,7 @@
   </section><!-- End Contact Section -->
   
   <script type="text/javascript">
-  document.getElementById('makePayment').addEventListener('click',(event)=>{
+  /* document.getElementById('makePayment').addEventListener('click',(event)=>{
 
 event.preventDefault();
 
@@ -89,6 +90,6 @@ axios.post('stkpush',requestBody).then((response) =>{
 }).catch((error) => {
     console.log(error);
 })
-})
+}) */
     </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,18 +20,15 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        $showCourses = Course::with(['videos'=> function($query){
-            $query->orderBy('created_at', 'asc')->take(1);
-        }])->get();
+        $showCourses = Course::with('videos')->get();
+        $showsubcourse=Course::all();
         $showvid = Course::with('videos')->first();
         
-        return view('front-end.pages.Home', compact('showCourses', 'showvid'));
+        return view('front-end.pages.Home', compact('showCourses', 'showvid','showsubcourse'));
 
     }
     public function courses(){
-        $showCourses = Course::with(['videos'=> function($query){
-            $query->orderBy('created_at', 'asc')->take(1);
-        }])->get();
+        $showCourses = Course::with('videos')->get();
 
         return view('front-end.pages.Courses', compact('showCourses'));
 
@@ -113,9 +111,7 @@ class Controller extends BaseController
                 return view('front-end.pages.BlogDetails',compact('postdetails'));
             }
             public function blog(){
-                $findpost=Posts::with(['postimages'=> function($query){
-                    $query->orderBy('created_at', 'asc')->take(1);
-                }])->get();
+                $findpost=Posts::with('postimages')->get();
          /*  dd($findpost); */
                 return view('front-end.pages.Blog',compact('findpost'));
             }
@@ -196,7 +192,8 @@ else{
             }
 
             public function faqs(){
-                return view('front-end.pages.Faqs');
+                $showfaqs = Faqs::all();
+                return view('front-end.pages.Faqs', compact('showfaqs'));
             }
 
             public function addfaq(){
@@ -251,6 +248,10 @@ else{
                 return back()->with('success','Faq Deleted successfully');
         
            
+            }
+
+            public function downloadVideo(Request $request, $file){
+         return response()->download(public_path('storage/img/videos/'.$file));
             }
 
 

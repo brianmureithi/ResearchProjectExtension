@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Authchecker;
+use App\Models\User;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/subscribed-courses',[App\Http\Controllers\CourseController::class, 'subscribedCourses'])->name('my-courses');
     Route::get('/course-content/{id}',[App\Http\Controllers\CourseController::class, 'coursecontent'])->name('view-course-content');
     Route::post('/subscribe-free/{id}',[App\Http\Controllers\CourseController::class, 'subscribeFree'])->name('subscribe-free');
+    Route::post('/subscribe-pay',[App\Http\Controllers\CourseController::class, 'subscribePay'])->name('subscribe-pay');
 
 
 
@@ -36,6 +39,31 @@ Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog'])->name('blo
 Route::get('/faqs', [App\Http\Controllers\Controller::class, 'faqs'])->name('faqs');
 Route::post('/newsletter-subscribe', [App\Http\Controllers\Controller::class, 'newslettersubscribe'])->name('newsletter-visitor');
 Route::post('/contact-us', [App\Http\Controllers\Controller::class, 'contactus'])->name('contact-form');
+Route::get('/download/{file}',[App\Http\Controllers\Controller::class, 'downloadVideo'])->name('download-video');
+Route::post('get-token', [App\Http\Controllers\MPESAController::class, 'getAccessToken']);
+Route::post('register-urls', [App\Http\Controllers\MPESAController::class, 'registerURLS']);
+Route::post('api/validation', [App\Http\Controllers\MPESAResponsesController::class, 'validation']);
+Route::post('api/confirmation', [App\Http\Controllers\MPESAResponsesController::class, 'confirmation']);
+
+Route::get('customerMpesaSTKPush', [App\Http\Controllers\MPESAController::class, 'stkPush'])->name('stkpush');
+Route::get('simulateb2c', [App\Http\Controllers\MPESAController::class, 'b2cRequest'])->name('b2cRequest');
+
+Route::post('stkpushcallback', [App\Http\Controllers\MPESAResponsesController::class, 'stkPush']);
+Route::post('api/b2ccallback', [App\Http\Controllers\MPESAResponsesController::class, 'b2ccallback']);
+Route::post('api/b2ctimeout', [App\Http\Controllers\MPESAResponsesController::class, 'b2ctimeout']);
+Route::get('send-email',function(){
+$details = [
+    'title'=>'Mail from Brian',
+    'body'=>'Hope you are well, test email'
+];
+$users=User::all();
+
+foreach($users as $user){
+\Mail::to($user->email)->send(new \App\Mail\TestEmail($details));
+
+dd("email is sent");
+}
+});
 /* Route::get('/register', [App\Http\Controllers\Controller::class, 'register'])->name('register');
 Route::post('/register', [App\Http\Controllers\Controller::class, 'save'])->name('register-save'); */
 

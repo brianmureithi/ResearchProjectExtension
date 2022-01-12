@@ -17,7 +17,12 @@
 @elseif($message = Session::get('fail-free'))
     <div class="alert alert-danger">
         <p>{{ $message }}</p>
-  </div>              
+  </div>    
+@elseif($message = Session::get('success-pay'))
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
+  </div>    
+         
 @endif 
 
 <section id="popular-courses" class="courses">
@@ -50,7 +55,7 @@
         <p>{{ $coursesubscribed->course->description }}</p>
         
               
-        <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn" style="background:#5aa88a !important;">Course Content</a>
+        <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn courseContentBtn" style="background:#0caf71 !important;">Course Content</a>
         
       </div>
     </div>

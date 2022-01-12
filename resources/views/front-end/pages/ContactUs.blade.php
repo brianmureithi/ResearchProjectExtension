@@ -40,13 +40,13 @@
             <div class="email">
               <i class="bi bi-envelope"></i>
               <h4>Email:</h4>
-              <p>dvc@rpe.jkuat.ac.ke</p>
+              <a href="mailto:dvc@rpe.jkuat.ac.ke"><p>dvc@rpe.jkuat.ac.ke</p></a>
             </div>
 
             <div class="phone">
               <i class="bi bi-phone"></i>
               <h4>Call:</h4>
-              <p>+254-067-52711</p>
+              <a href="tel:075406752711"><p>+254-067-52711</p></a>
             </div>
 
           </div>

@@ -2,6 +2,9 @@ const { default: axios } = require('axios');
 
 require('./bootstrap');
 
+
+       
+
 document.getElementById('').addEventListener('click',(event)=>{
 
     event.preventDefault();

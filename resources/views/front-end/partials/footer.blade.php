@@ -45,9 +45,18 @@
             <form action="{{ route('newsletter-visitor') }}" method="post">
               @csrf
               <div style="align-text:left;"> <label for="email">Email:</label><input id="email" type="email" placeholder="Enter email" class="form-control" name="email"></div>
-             <div> <label for="category">Category:</label><input id="category" placeholder="Enter category"type="category" class="form-control" name="category"></div>
+<div class="cat">
+  <label for="category">Category:</label>
+  <select id="category" placeholder="Enter category" class="form-control cat" name="category">
+    @foreach ($course as $cs)
+      
+     <option value="{{$cs->name}}"> {{$cs->name}} </option>
+     @endforeach
+    </select>
+</div>
+             {{--  <div> <label for="category">Category:</label><input id="category" placeholder="Enter category"type="category" class="form-control" name="category"></div>
               
-              <input type="submit" value="Subscribe">
+           --}}    <input type="submit" value="Subscribe">
             </form>
           </div>
 

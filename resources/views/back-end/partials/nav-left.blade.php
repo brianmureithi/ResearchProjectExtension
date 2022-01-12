@@ -72,7 +72,7 @@
             <li>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">local_post_office</i>
-                    <span>Messages</span>
+                    <span>Messages</span>  <div style="margin-left:8px;background:#fb483a;border-radius:50%; width:20px;height:20px;text-align:center;color:white">{{$messages}}</div>
                 </a>
                 <ul class="ml-menu">
                     <li>
