@@ -48,7 +48,7 @@ Route::post('api/confirmation', [App\Http\Controllers\MPESAResponsesController::
 Route::get('customerMpesaSTKPush', [App\Http\Controllers\MPESAController::class, 'stkPush'])->name('stkpush');
 Route::get('simulateb2c', [App\Http\Controllers\MPESAController::class, 'b2cRequest'])->name('b2cRequest');
 
-Route::post('api/stkpushcallback', [App\Http\Controllers\MPESAResponsesController::class, 'stkPush']);
+Route::post('stkpushcallback', [App\Http\Controllers\MPESAResponsesController::class, 'stkPush']);
 Route::post('api/b2ccallback', [App\Http\Controllers\MPESAResponsesController::class, 'b2ccallback']);
 Route::post('api/b2ctimeout', [App\Http\Controllers\MPESAResponsesController::class, 'b2ctimeout']);
 Route::get('send-email',function(){

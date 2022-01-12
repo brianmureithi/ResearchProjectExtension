@@ -20,9 +20,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        $showCourses = Course::with(['videos'=> function($query){
-            $query->orderBy('created_at', 'asc')->take(1);
-        }])->get();
+        $showCourses = Course::with('videos')->get();
         $showsubcourse=Course::all();
         $showvid = Course::with('videos')->first();
         
@@ -30,9 +28,7 @@ class Controller extends BaseController
 
     }
     public function courses(){
-        $showCourses = Course::with(['videos'=> function($query){
-            $query->orderBy('created_at', 'asc')->take(1);
-        }])->get();
+        $showCourses = Course::with('videos')->get();
 
         return view('front-end.pages.Courses', compact('showCourses'));
 
@@ -115,9 +111,7 @@ class Controller extends BaseController
                 return view('front-end.pages.BlogDetails',compact('postdetails'));
             }
             public function blog(){
-                $findpost=Posts::with(['postimages'=> function($query){
-                    $query->orderBy('created_at', 'asc')->take(1);
-                }])->get();
+                $findpost=Posts::with('postimages')->get();
          /*  dd($findpost); */
                 return view('front-end.pages.Blog',compact('findpost'));
             }

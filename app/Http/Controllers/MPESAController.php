@@ -100,7 +100,7 @@ class MPESAController extends Controller
             'PartyA' => $request_phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
             'PhoneNumber' => $request_phone,
-            'CallBackURL' => env('MPESA_TEST_URL'). '/api/stkpushcallback',
+            'CallBackURL' => env('MPESA_TEST_URL').'/stkpushcallback',
             'AccountReference' => $request_account,
             'TransactionDesc' => $request_account,
           );
@@ -108,7 +108,7 @@ class MPESAController extends Controller
         $url = '/stkpush/v1/processrequest';
         
         $response = $this->makeHttp($url, $curl_post_data);
-        // return $response;
+        return $response;
     }
     
    

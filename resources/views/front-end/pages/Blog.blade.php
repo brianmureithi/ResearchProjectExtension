@@ -44,9 +44,9 @@
             <div class="col-md-6 d-flex align-items-stretch">
               <div class="card">
                 <div class="card-img">
-                    @foreach ($findpost->first()->postimages as $postimage) 
-                  <img src="{{URL::asset('/storage/img/blog/'.$postimage->filename)}}" alt="..."/>
-                  @endforeach 
+                    @if (count($post->postimages) > 0 ) 
+                  <img src="{{URL::asset('/storage/img/blog/'.$post->postimages[0]->filename)}}"  style="width:100%;" alt="..."/>
+                  @endif 
                 </div>
                 <div class="card-body  blog-text ">
                   <h5 class="card-title"><a href="{{route('blog-details',$post->id)}}">{{$post->title}}</a></h5>

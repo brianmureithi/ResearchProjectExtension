@@ -52,16 +52,12 @@ class CourseController extends Controller
         // $obj->name= $request->name;
         // $obj->category_id= $request->category_id; */
       
-
-
         return back()->with('success-add','Course added successfully, proceed to add videos');
       }
- catch(\Exception $e){
-    
+ catch(\Exception $e){  
      return back()->with('fail-add','Addition of course failed. Ensure all fields are filled appropriately');
           }
-      }
-     
+      }     
       public function addvideo(Request $request){
        try{ 
         
@@ -71,9 +67,6 @@ class CourseController extends Controller
               'course_id'=>'required',
               'description'=>'required',
               'lesson'=>'required',
-                           
-             
-             
           ]);
           $data = new Video();
           $course_id=$request->input('course_id');
@@ -86,19 +79,11 @@ class CourseController extends Controller
           $data->lesson=$lesson;
           $data->course_id=$course_id;
           $data->description=$description;
-
           $data->save();
-         
-     
-        
-
-        
           return back()->with('success-video', 'Video Added Successfully'); 
-
      }catch(\Exception $e){
         
           return back() ->with('fail-video','Video addition failed, ensure all records are filled approprately');
-
       }  
       }
 
@@ -204,7 +189,7 @@ class CourseController extends Controller
         
           if($user){
             return back()->with('fail-subscribe', 'Already subscribed to this course');
-          }else{
+          }else{ 
               subscribed_courses::create([
                 'course_id'=>$request->course_id,               
                 'user_id'=>auth()->user()->id,
@@ -212,7 +197,7 @@ class CourseController extends Controller
              
             ]);
               payments::create([
-                'course_id'=>$request->user_id,               
+                'course_id'=>$request->course_id,               
                 'user_id'=>auth()->user()->id,
                 'phone'=>$request->phone,        
                 'amount'=>$request->amount,        
@@ -227,7 +212,7 @@ class CourseController extends Controller
             'phone'=>$request->phone,
     ]); 
 
-      }  
+       }  
         }
 
         public function subscribedCourses(){

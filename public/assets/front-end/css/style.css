@@ -370,7 +370,7 @@ color:#333;
   background-color: #fff;
   border:1px #ebebeb solid;
   padding:5px;
-  height:55vh;
+  height:45vh;
   position:relative;
 
 }
@@ -378,7 +378,7 @@ color:#333;
   position: absolute;
   bottom: 5px;
   padding:8px;
-  margin-top:25px;
+ 
   border-radius:10px;
   color:#fff;
   background: #0caf71;

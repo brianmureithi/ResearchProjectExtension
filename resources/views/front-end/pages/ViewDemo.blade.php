@@ -11,15 +11,15 @@
             </div>
             <div class="modal-body">
 
-             @forelse ( $Course->videos as $coursevid )
-                <iframe src="{{ URL::asset('/storage/img/videos/' . $coursevid->first()->video) }}"
+             @if( count($Course->videos) > 0  )
+                <iframe src="{{ URL::asset('/storage/img/videos/' . $Course->videos[0]->video) }}"
                     style="height:40vh;width:100%;">
                 </iframe> 
-                @empty
+                @else
                     <div class="alert alert-danger">
                         No Demo video available for this course at the moment
                     </div>
-                @endforelse 
+                @endif
                
             </div>
             <div class="modal-footer">

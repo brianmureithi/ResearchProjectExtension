@@ -27,11 +27,14 @@ class MPESAResponsesController extends Controller
             Log::info('STK Push endpoint hit');
             Log::info($request->all());
 
-            return [
+          /*   return [
                 'ResultCode' => 0,
                 'ResultDesc' => 'Accept Service',
                 'ThirdPartyTransID' => rand(3000, 10000)
-            ];
+            ]; */
+
+            return redirect()->route('my-courses')
+            ->with('success-pay','Course subscribed successfully'); 
             
             // $MerchantRequestID  = $body[0]['Body']['stkCallback']['MerchantRequestID'];
             // $Amount  = $body[0]['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
