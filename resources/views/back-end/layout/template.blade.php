@@ -7,7 +7,7 @@
     <title>R.P.E || Jkuat</title>
     <!-- Favicon-->
     <link rel="icon" href="{{asset('assets/front-end/images/favicon.ico')}} " type="image/x-icon">
-    <link href="{{ asset('assets/front-end/img/logo.jpg')}}" rel="icon">
+    <link href="{{ asset('storage/img/front-end/logo.jpg')}}" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">

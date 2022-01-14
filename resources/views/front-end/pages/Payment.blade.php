@@ -15,7 +15,7 @@
          
           @foreach ($getcourses as $course)
 
-          <form action="{{ route('subscribe-pay') }}" method="post" role="form" class="php-email-form">
+          <form action="{{ route('subscribe-pay') }}" method="post" role="form"  id="payment-form" class="php-email-form">
             @csrf
             <div class="row">
               
@@ -70,19 +70,28 @@
   </section><!-- End Contact Section -->
   
   <script type="text/javascript">
-  /* document.getElementById('makePayment').addEventListener('click',(event)=>{
+   document.getElementById('makePayment').addEventListener('click',(event)=>{
 
 event.preventDefault();
 
 const requestBody = {
-    amount:document.getElementById('amount'),value,
-    phone:document.getElementById('phone'),value,
+    amount:document.getElementById('amount').value,
+    phone:document.getElementById('phone').value,
+    
     
 }
 
-axios.post('stkpush',requestBody).then((response) =>{
+axios.post('/customerMpesaSTKPush',requestBody)
+.then((response) =>{
     if(response.data.ResponseDescription){
-   
+      console.log(response.data);
+     /*  if(response.data.ResponseCode == 0){
+        document.getElementById('payment-form').submit();
+      }
+      else{
+        window.location.replace("/subscribed-courses");
+      } */
+  
     }
     else{
 
@@ -90,6 +99,6 @@ axios.post('stkpush',requestBody).then((response) =>{
 }).catch((error) => {
     console.log(error);
 })
-}) */
+})  
     </script>
 @endsection
