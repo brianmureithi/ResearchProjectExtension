@@ -11,9 +11,11 @@ class MPESAResponsesController extends Controller
 {
     //
     public function validation(Request $request){
+      
+
         Log::info('Validation endpoint hit');
         Log::info($request->all());
-
+/* dd($request->all()); */
         return [
             'ResultCode' => 0,
             'ResultDesc' => 'Accept Service',

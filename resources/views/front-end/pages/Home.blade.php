@@ -29,8 +29,8 @@
     </section><!-- End Hero -->
 
     <!-- ======= Popular Courses Section ======= -->
-    <section id="popular-courses" class="courses">
-        <div class="container" data-aos="fade-up">
+    <section id="popular-courses " class="courses ">
+        <div class="container " data-aos="fade-up">
 
             <div class="section-title">
                 <h2>Courses</h2>

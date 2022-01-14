@@ -110,12 +110,17 @@ class Controller extends BaseController
                 
                 return view('front-end.pages.BlogDetails',compact('postdetails'));
             }
+
+
+
             public function blog(){
                 $findpost=Posts::with('postimages')->get();
          /*  dd($findpost); */
                 return view('front-end.pages.Blog',compact('findpost'));
             }
         
+
+
             public function newslettersubscribe(Request $request){
                 try{
                     $request->validate
@@ -153,14 +158,14 @@ class Controller extends BaseController
         $contact->subject = $request->subject;
         $contact->message = $request->message;
         
-$save= $contact->save();
+        $save= $contact->save();
 
-if($save){
-    return back()->with('success','Message sent successfully');
-}
-else{
-    return back()->with('fail','Something went wrong, try again');
-}
+                if($save){
+                    return back()->with('success','Message sent successfully');
+                }
+                else{
+                    return back()->with('fail','Something went wrong, try again');
+                }
 
             }
 
