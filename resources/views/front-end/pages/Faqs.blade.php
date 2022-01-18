@@ -42,8 +42,12 @@ No Faqs uploaded yet, kindly contact us for any inquiries
       
     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 </section>
 >>>>>>> cfa9706bcba02748253c7bd3d5fcc58e382a70fc
+=======
+</section>
+>>>>>>> a009dce319663fc15633284eaea4a76139519b77
 
 @endsection

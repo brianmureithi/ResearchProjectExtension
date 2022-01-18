@@ -165,14 +165,11 @@ class CourseController extends Controller
              
             ]);
     
-    return redirect()->route('my-courses')
-    ->with('success-free','Course subscribed successfully'); 
-      }  
-          
-        
-       
-        }
-
+          return redirect()->route('my-courses')
+          ->with('success-free','Course subscribed successfully'); 
+            }  
+               
+               }
 
         public function subscribePay(Request $request){
           $request->validate
@@ -185,7 +182,7 @@ class CourseController extends Controller
              
              
           ]);
-          $user = DB::table('subscribed_courses')->where(['course_id'=>$request->course_id, 'user_id' => auth()->user()->id])->first();
+           $user = DB::table('subscribed_courses')->where(['course_id'=>$request->course_id, 'user_id' => auth()->user()->id])->first();
         
           if($user){
             return back()->with('fail-subscribe', 'Already subscribed to this course');
@@ -204,15 +201,12 @@ class CourseController extends Controller
              
             ]);
 
-       
+        
           /*   my-courses */
-    return redirect()->route('stkpush')
-    ->with(['success-free'=>'Course subscribed successfully',
-            'amount'=>$request->amount,
-            'phone'=>$request->phone,
-    ]); 
+         return redirect()->route('my-courses')
+            ->with('success-pay','Course subscribed successfully'); 
 
-       }  
+        }   
         }
 
         public function subscribedCourses(){

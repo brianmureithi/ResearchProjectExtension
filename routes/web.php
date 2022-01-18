@@ -45,7 +45,7 @@ Route::post('register-urls', [App\Http\Controllers\MPESAController::class, 'regi
 Route::post('api/validation', [App\Http\Controllers\MPESAResponsesController::class, 'validation']);
 Route::post('api/confirmation', [App\Http\Controllers\MPESAResponsesController::class, 'confirmation']);
 
-Route::get('customerMpesaSTKPush', [App\Http\Controllers\MPESAController::class, 'stkPush'])->name('stkpush');
+Route::post('customerMpesaSTKPush', [App\Http\Controllers\MPESAController::class, 'stkPush'])->name('stkpush');
 Route::get('simulateb2c', [App\Http\Controllers\MPESAController::class, 'b2cRequest'])->name('b2cRequest');
 
 Route::post('stkpushcallback', [App\Http\Controllers\MPESAResponsesController::class, 'stkPush']);

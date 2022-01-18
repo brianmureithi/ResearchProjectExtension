@@ -61,7 +61,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone number (mpesa no.)" required/>
+									<input type="text" class="form-control" name="phone" id="phone"  placeholder="Enter your phone number (mpesa no.) 254..." required/>
 								</div>
 							</div>
 						</div>
