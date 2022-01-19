@@ -4,7 +4,7 @@
 
  <!-- ======= Popular Courses Section ======= -->
  <section id="popular-courses" class="courses">
-    <div class="container" data-aos="fade-up">
+    <div class=" cont" data-aos="fade-up">
       @if ($message = Session::get('success-newsletter'))
       <div class="alert alert-success">
                   <p>{{ $message }}</p>

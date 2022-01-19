@@ -29,8 +29,8 @@
     </section><!-- End Hero -->
 
     <!-- ======= Popular Courses Section ======= -->
-    <section id="popular-courses " class="courses ">
-        <div class="container " data-aos="fade-up">
+    <section id=" " class="courses ">
+        <div class="cont position-relative" " data-aos="fade-up">
 
             <div class="section-title">
                 <h2>Courses</h2>
@@ -68,7 +68,7 @@
 
                                     <a href="#"
                                         onclick="document.getElementById('subscribe-course-{{ $Course->id }}').submit()"
-                                        class="get-started-btn" style="background:#b3a632;color:#fff;cursor:pointer">Subscribe</a>
+                                        class="get-started-btn" style="background:#b3a632;color:#fff;cursor:pointer;width:100px">Subscribe</a>
                                       {{--   b3a632 --}}
 
                                 @endif
