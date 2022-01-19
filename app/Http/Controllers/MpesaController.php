@@ -84,7 +84,8 @@ class MPESAController extends Controller
     {
         $amount = $request->amount;
         $phone = $request->phone;
-        $account = $request->phone;
+        $account = "Research Project Extension";
+        
        
 
 
@@ -101,7 +102,7 @@ class MPESAController extends Controller
             'Amount' =>  $amount,
             'PartyA' => $phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
-            'PhoneNumber' => $phone,
+            'PhoneNumber' =>str_replace("0", "254",$phone),
             'CallBackURL' => env('MPESA_TEST_URL').'/stkpushcallback',
             'AccountReference' => $account,
             'TransactionDesc' => $account,

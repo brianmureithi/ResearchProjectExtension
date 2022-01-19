@@ -949,7 +949,7 @@ section {
 }
 
 .courseContentBtn{
-  transition:background 0.3s ease-in-out;
+  transition:background 0.3s;
   background:#0caf71 !important;
 }
 .courseContentBtn:hover{
