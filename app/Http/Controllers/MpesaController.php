@@ -79,12 +79,14 @@ class MPESAController extends Controller
         return $response;
     }
 
+
     public function stkPush(Request $request)
     {
         $amount = $request->amount;
         $phone = $request->phone;
         $account = $request->phone;
        
+
 
         $timestamp = date('YmdHis');
         $password = env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp;
@@ -103,14 +105,17 @@ class MPESAController extends Controller
             'CallBackURL' => env('MPESA_TEST_URL').'/stkpushcallback',
             'AccountReference' => $account,
             'TransactionDesc' => $account,
+
           );
 
         $url = '/stkpush/v1/processrequest';
         
         $response = $this->makeHttp($url, $curl_post_data);
+
         
         return $response;
         
+
     }
     
    
