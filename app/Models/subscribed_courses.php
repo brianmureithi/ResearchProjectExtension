@@ -11,6 +11,7 @@ class subscribed_courses extends Model
     protected $fillable = [
         "course_id",
         "user_id",
+        "status",
      
     ];
 

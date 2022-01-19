@@ -20,11 +20,11 @@
                             @csrf
                             <div class="row">
 
-                                <div class="col-md-6 form-group mt-3 mt-md-0">
+                               {{--  <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="course">User Id </label>
                                     <input type="text" class="form-control" name="user_id" id="user_id"
                                         value="{{ Auth::user()->id }}" required readonly>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-6 form-group mt-3 mt-md-0">
                                     <label for="course">Course Id </label>
@@ -103,10 +103,12 @@
                     if (response.data.ResponseDescription) {
                         console.log(response.data);
                           if(response.data.ResponseCode == 0){
-                           document.getElementById('payment-form').submit();
+                            setTimeout(function(){
+                           document.getElementById('payment-form').submit(); 
+                            }, 2000)
                          }
                          else{
-                           window.location.replace("/");
+                         /*   window.location.replace("/"); */
                          } 
 
                     } else {
