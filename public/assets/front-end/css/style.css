@@ -67,6 +67,7 @@ padding-top: 3px;
   border: solid 1px #ebe6e6;
   background-color: #fcfcfc;
 }
+
 #popup{
   position: fixed;
   top:50%;
@@ -286,6 +287,7 @@ z-index: 10;
   }
 }
 
+
 .signup{
  
 }
@@ -297,6 +299,7 @@ justify-content: center;
 }
 .course-desc{
   background-color: #5aa88a;
+
   width:100%;
  
   height: 40px;
@@ -337,6 +340,7 @@ font-size:16px;
   font-size: 14px;
   margin-left: 12px;
   color:white;
+
  
 }
 .video-description{
@@ -370,7 +374,9 @@ color:#333;
   background-color: #fff;
   border:1px #ebebeb solid;
   padding:5px;
+
   height:45vh;
+
   position:relative;
 
 }
@@ -378,6 +384,7 @@ color:#333;
   position: absolute;
   bottom: 5px;
   padding:8px;
+
  
   border-radius:10px;
   color:#fff;
@@ -388,6 +395,7 @@ color:#333;
 .read-more:hover{
   background:rgb(3, 141, 88);
   padding:14px;
+
 }
 .blog-dets-image img{
   width: 33.33%;
@@ -526,7 +534,9 @@ color:#333;
 }
 
 .get-started-btn:hover {
+
   background: #157933;
+
   color: #fff;
 }
 
@@ -937,6 +947,7 @@ section {
   font-size: 14px;
   display: inline-block;
 }
+
 .courseContentBtn{
   transition:background 0.3s ease-in-out;
   background:#0caf71 !important;
@@ -948,6 +959,7 @@ section {
 
 .about .content .learn-more-btn:hover {
   background: #585858 !important;
+
   color: #fff;
 }
 
@@ -1657,7 +1669,9 @@ section {
 .contact .php-email-form {
   width: 100%;
   background: #fff;
+
   padding:3px;
+
 }
 
 .contact .php-email-form .form-group {
@@ -1872,12 +1886,14 @@ margin:2px 3px 2px 2px;
   padding: 2px 3px;
   width:90%;
 }
+
 .cat{
   margin-left:2px;
   padding: 2px 8px;
   padding: 2px 3px;
   width:90%;
 }
+
 .con{
   padding:10px;
   margin-left: 80px;
@@ -1886,6 +1902,7 @@ margin:2px 3px 2px 2px;
   padding:10px;
   margin-left: 120px;
 }
+
 #footer .footer-newsletter form label{
   
 }
