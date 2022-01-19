@@ -35,8 +35,7 @@ class MPESAResponsesController extends Controller
                 'ThirdPartyTransID' => rand(3000, 10000)
             ]; */
 
-            return redirect()->route('my-courses')
-            ->with('success-pay','Course subscribed successfully'); 
+       
             
             // $MerchantRequestID  = $body[0]['Body']['stkCallback']['MerchantRequestID'];
             // $Amount  = $body[0]['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
