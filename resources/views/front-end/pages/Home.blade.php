@@ -30,7 +30,7 @@
 
     <!-- ======= Popular Courses Section ======= -->
     <section id=" " class="courses ">
-        <div class="cont position-relative" " data-aos="fade-up">
+        <div class="cont position-relative col-md-12 col-sm-12" data-aos="fade-up">
 
             <div class="section-title">
                 <h2>Courses</h2>
