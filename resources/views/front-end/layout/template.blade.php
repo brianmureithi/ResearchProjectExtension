@@ -42,7 +42,7 @@
  --}}
 
     <link href="{{ asset('assets/front-end/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/front-end/css/app.css') }}" rel="stylesheet">
+   
 
 
 
