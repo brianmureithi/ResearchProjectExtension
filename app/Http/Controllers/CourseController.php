@@ -155,6 +155,7 @@ class CourseController extends Controller
        /*  $findCourse = subscribed_courses::find($id); */
        /*  Table::select('name','surname')->where('id', 1)->get(); */
         $user = DB::table('subscribed_courses')->where(['course_id'=>$id, 'user_id' => auth()->user()->id])->first();
+
         
           if($user){
             return back()->with('fail-subscribe', 'Already subscribed to this course');
@@ -162,6 +163,7 @@ class CourseController extends Controller
               subscribed_courses::create([
                 'course_id'=>$id,               
                 'user_id'=>auth()->user()->id,
+                'status'=> 1,
              
             ]);
     
@@ -176,7 +178,7 @@ class CourseController extends Controller
           ([
               'amount'=>'required',
               'course_id'=>'required',
-              'user_id'=>'required',
+             
               'phone'=>'required',
                            
              
@@ -190,21 +192,21 @@ class CourseController extends Controller
               subscribed_courses::create([
                 'course_id'=>$request->course_id,               
                 'user_id'=>auth()->user()->id,
-                'phone'=>'required',
+                'status'=> 0,
              
             ]);
-              payments::create([
+             /*  payments::create([
                 'course_id'=>$request->course_id,               
                 'user_id'=>auth()->user()->id,
                 'phone'=>$request->phone,        
                 'amount'=>$request->amount,        
              
-            ]);
+            ]); */
 
         
           /*   my-courses */
          return redirect()->route('my-courses')
-            ->with('success-pay','Course subscribed successfully'); 
+            ->with('success-pay','Course subscribed successfully, Kindly confirm payment to access course'); 
 
         }   
         }

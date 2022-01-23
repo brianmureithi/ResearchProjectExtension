@@ -370,7 +370,9 @@ color:#333;
   background-color: #fff;
   border:1px #ebebeb solid;
   padding:5px;
+
   height:45vh;
+
   position:relative;
 
 }
@@ -526,7 +528,9 @@ color:#333;
 }
 
 .get-started-btn:hover {
+
   background: #157933;
+
   color: #fff;
 }
 
@@ -667,6 +671,10 @@ color:#333;
   }
   .navbar ul {
     display: none;
+  }
+  .con{
+    margin-left:5px ;
+    padding: 0;
   }
 }
 
@@ -938,7 +946,7 @@ section {
   display: inline-block;
 }
 .courseContentBtn{
-  transition:background 0.3s ease-in-out;
+  transition:background 0.3s;
   background:#0caf71 !important;
 }
 .courseContentBtn:hover{
@@ -1657,7 +1665,9 @@ section {
 .contact .php-email-form {
   width: 100%;
   background: #fff;
+
   padding:3px;
+
 }
 
 .contact .php-email-form .form-group {
@@ -1878,6 +1888,16 @@ margin:2px 3px 2px 2px;
   padding: 2px 3px;
   width:90%;
 }
+
+.con{
+  padding:10px;
+  margin-left: 80px;
+}
+.cont{
+  padding:10px;
+  margin-left: 120px;
+}
+
 #footer .footer-newsletter form label{
   
 }

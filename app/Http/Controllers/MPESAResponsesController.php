@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use App\Models\payments;
 
 
 class MPESAResponsesController extends Controller
@@ -25,9 +26,33 @@ class MPESAResponsesController extends Controller
 
 
     public function stkPush(Request $request) {
-        try {
+        /* try { */
             Log::info('STK Push endpoint hit');
             Log::info($request->all());
+         /*    dd($request->all()); */
+           /*  $response = json_decode($request->getContent());
+            $resCode=$response->Body->stkCallback->ResultCode;
+            if($resCode == 0){
+            $resData=$response->Body->stkCallback->CallbackMetadata;
+            $resMessage = $response->Body->stkCallback->ResultDesc;
+            $amount = $resData->Item[0]->Value;
+            $transaction_code = $resData->Item[1]->Value;
+            $phone = $resData->Item[3]->Value;
+            $formatedphone = str_replace("254", "0", $phone);
+            $user_id=auth()->user()->id;
+
+            $payment = new payments;
+            $payment->amount = $amount;
+            $payment->phone = $formatedphone;
+            $payment->transaction_code = $transaction_code;
+            $payment->user_id = $user_id;
+            $payment->save(); 
+
+
+
+        }
+*/
+           
 
           /*   return [
                 'ResultCode' => 0,
@@ -35,8 +60,7 @@ class MPESAResponsesController extends Controller
                 'ThirdPartyTransID' => rand(3000, 10000)
             ]; */
 
-            return redirect()->route('my-courses')
-            ->with('success-pay','Course subscribed successfully'); 
+       
             
             // $MerchantRequestID  = $body[0]['Body']['stkCallback']['MerchantRequestID'];
             // $Amount  = $body[0]['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
@@ -44,10 +68,10 @@ class MPESAResponsesController extends Controller
             // $TransactionDate  = $body[0]['Body']['stkCallback']['CallbackMetadata']['Item'][3]['Value'];
             // $PhoneNumber  = $body[0]['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'];
             
-        } catch (Throwable $th) {
+        /* } catch (Throwable $th) {
             Log::info('Mpesa Error:');
             Log::error($th);
-        }
+        } */
     }
 
 

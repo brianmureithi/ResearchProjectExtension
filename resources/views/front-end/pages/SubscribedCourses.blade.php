@@ -54,9 +54,11 @@
         <h3><a href="course-details.html">{{ $coursesubscribed->course->name}}</a></h3>
         <p>{{ $coursesubscribed->course->description }}</p>
         
-              
+              @if($coursesubscribed->status == 1)
         <a href="{{ route('view-course-content',$coursesubscribed->course_id)  }}" class="get-started-btn learn-more-btn courseContentBtn" style="background:#0caf71 !important;">Course Content</a>
-        
+        @elseif($coursesubscribed->status == 0)
+        <a href="#" data-toggle="modal" data-target="#confirm-payment-{{ $coursesubscribed->course_id}}" class="get-started-btn learn-more-btn courseConfirmBtn" style="background:#b69c09 !important;">Confirm Payment</a>
+        @endif
       </div>
     </div>
   </div>
@@ -66,7 +68,7 @@
   </div>
   @endif
 
-
+  @include('front-end.pages.confirmPaymentModal')
 @empty
 <div class="alert alert-danger">
 No course subscribed at the moment

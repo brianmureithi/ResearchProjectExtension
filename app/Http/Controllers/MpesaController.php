@@ -79,11 +79,14 @@ class MPESAController extends Controller
         return $response;
     }
 
-    public function stkPush()
+
+    public function stkPush(Request $request)
     {
-        $request_amount = session()->get('amount');
-        $request_phone = session()->get('phone');
-        $request_account = session()->get('phone');
+        $amount = $request->amount;
+        $phone = $request->phone;
+        $account = "Research Project Extension";
+        
+       
 
 
         $timestamp = date('YmdHis');
@@ -96,19 +99,24 @@ class MPESAController extends Controller
             'Password' => $password,
             'Timestamp' => $timestamp,
             'TransactionType' => 'CustomerPayBillOnline',
-            'Amount' =>  $request_amount,
-            'PartyA' => $request_phone,
+            'Amount' =>  $amount,
+            'PartyA' => $phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
-            'PhoneNumber' => $request_phone,
+            'PhoneNumber' =>str_replace("0", "254",$phone),
             'CallBackURL' => env('MPESA_TEST_URL').'/stkpushcallback',
-            'AccountReference' => $request_account,
-            'TransactionDesc' => $request_account,
+            'AccountReference' => $account,
+            'TransactionDesc' => $account,
+
           );
 
         $url = '/stkpush/v1/processrequest';
         
         $response = $this->makeHttp($url, $curl_post_data);
+
+        
         return $response;
+        
+
     }
     
    

@@ -28,7 +28,7 @@
             <li><i class="bi bi-check-circle" style="color: black"></i> School and Farmer group visits to the University </li>
             <li><i class="bi bi-check-circle" style="color: black"></i>Training in agribusiness value chains for horticultural crops </li>
           </ul>
-          <h4 style="color: #dc140f"> Outstanding Achievements:</h4>
+          <h4 style="color: #fdad00"> Outstanding Achievements:</h4>
           <ul>
             <li><i class="bi bi-check-circle" ></i>Socioeconomic Empowerment of over 9000 women through the In-country training program.</li>
             <li><i class="bi bi-check-circle" ></i>Coordinating visits to the university by groups of farmers, students, and industrialists on learning mission.</li>
@@ -63,12 +63,12 @@
             <h4>Core activities</h4>
             <p>
               <ul>
-                <li><i class="bi bi-check-circle" style="color: red"></i>Coordinating the participation of the university in shows, exhibitions and trade fairs.</li>
-                <li><i class="bi bi-check-circle" style="color: red"></i> Coordinating visits to the university by groups of farmers, students, and industrialists on learning mission.</li>
-                <li><i class="bi bi-check-circle" style="color: red"></i> Training various target groups in various fields e.g. the in-country training program for rural women leaders; youths; SMEs and persons with disabilities.</li>
-                <li><i class="bi bi-check-circle" style="color: red"></i> Seeking and promoting partnerships with industry for extension service delivery. </li>
-                <li><i class="bi bi-check-circle" style="color: red"></i> Initiating and participating in extension consultancy work. </li>
-                <li><i class="bi bi-check-circle" style="color: red"></i> Development of extension information communication and education materials.</li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i>Coordinating the participation of the university in shows, exhibitions and trade fairs.</li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i> Coordinating visits to the university by groups of farmers, students, and industrialists on learning mission.</li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i> Training various target groups in various fields e.g. the in-country training program for rural women leaders; youths; SMEs and persons with disabilities.</li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i> Seeking and promoting partnerships with industry for extension service delivery. </li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i> Initiating and participating in extension consultancy work. </li>
+                <li><i class="bi bi-check-circle" style="color: #010302"></i> Development of extension information communication and education materials.</li>
               </ul>
              
             </p>

@@ -7796,7 +7796,7 @@ fieldset[disabled] .form-control {
 
 /* Login Page ================================== */
 .login-page {
-  background-color: #05a098;
+  background-image: linear-gradient(to right, #357c20, #8bc34a);
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;
@@ -7824,9 +7824,9 @@ fieldset[disabled] .form-control {
       color: #fff;
       margin-top: -5px; }
 
-/* Sign Up Page ================================ */
+/* Sign Up Page ===================05a098============= */
 .signup-page {
-  background-color:#05a098;
+  background-image: linear-gradient(to right, #357c20, #8bc34a);
   padding-left: 0;
   max-width: 360px;
   margin: 5% auto;
